@@ -3,9 +3,9 @@ var b = "Aryan"; // var is in es5 its shown in console when write window
 const pi = 3.14; // also in es6
 
 console.log("10" + 10);
-// plus is used for concatinate and arithmatic
+// plus is used for concatinate and arithmatic its return always string
 console.log("10" - 10);
-// minus is used for only arithmatic
+// minus is used for only arithmatic its return always int
 
 console.log(a);
 console.log(b);
