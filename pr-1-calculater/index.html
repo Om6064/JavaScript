@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <section class="vh-100  w-100 d-flex">
+        <div class="m-auto w-25 box">
+            <div class="  ">
+
+                <div>
+                    <form action="" class="text-center">
+                        <h1 class="my-5 text-light">Calculater : </h1>
+                        <span class="text-light">Value-1 : </span>
+                        <input type="text" id="value-1" class="w-75 my-3 box"><br>
+
+                        <span class="text-light">Value-2 : </span>
+                        <input type="text" id="value-2" class="w-75 my-3 box"><br>
+                        <button class="btn btn-light" id="add" type="button">+</button>
+                        <button class="btn btn-light" id="sub" type="button">-</button>
+                        <button class="btn btn-light" id="mul" type="button">*</button>
+                        <button class="btn btn-light" id="div" type="button">/</button>
+                        <button class="btn btn-light" id="cls" type="button">Clear</button>
+
+                        <h1 class="my-5 text-light">Ans : <span id="ans"></span></h1>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./assets/js/jquery.js"></script>
+    <script>
+        let e1 = document.getElementById("value-1")
+        let e2 = document.getElementById("value-2")
+        let ansElement = document.getElementById("ans")
+        function addition(v1, v2, ele) {
+            ele.innerHTML = v1 + v2;
+        }
+        function subtraction(v1, v2, ele) {
+            ele.innerHTML = v1 - v2;
+        }
+        function multiplication(v1, v2, ele) {
+            ele.innerHTML = v1 * v2;
+        }
+        function divistion(v1, v2, ele) {
+            ele.innerHTML = v1 / v2;
+        }
+
+        $("#add").on("click", function () {
+            addition(Number(e1.value), Number(e2.value), ansElement)
+        }) 
+        $("#sub").on("click", function () {
+            subtraction(Number(e1.value), Number(e2.value), ansElement)
+        })
+        $("#mul").on("click", function () {
+            multiplication(Number(e1.value), Number(e2.value), ansElement)
+        })
+        $("#div").on("click", function () {
+            divistion(Number(e1.value), Number(e2.value), ansElement)
+        })
+        $("#cls").on("click", function () {
+            e1.value = ""
+            e2.value = ""
+            ansElement.innerHTML = ""
+        })
+
+    </script>
+</body>
+
+</html>

@@ -16,8 +16,8 @@ document.getElementById("pri-soap").innerHTML = c;
 document.getElementById("q-soap").innerHTML = d;
 document.getElementById("t-soap").innerHTML = total_shaboo;
 
-let g = parseFloat(prompt("Enter shaboo price : "));
-let f = parseFloat(prompt("Enter shaboo Quntity : "));
+let g = parseFloat(prompt("Enter face wash price : "));
+let f = parseFloat(prompt("Enter face wash Quntity : "));
 
 let total_f = g * f ;
 
