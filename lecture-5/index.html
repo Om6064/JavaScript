@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    
+
+
+   <div class="">
+    <div class="jahsk d-flex align-items-center justify-content-center">
+        <div>
+            <div class="">
+                <p>Value 1 : <input type="text" id="val-1"></p>
+            </div>
+            <div class="">
+                <p>Value 2 : <input type="text" id="val-2"></p>
+            </div>
+            <div class="">
+                <p>Value 3 : <input type="text" id="val-3"></p>
+            </div>
+
+            <div>
+                <button type="button" id="min" class="btn btn-primary" onclick="checkMin()">Check Min</button>
+                <button type="button" id="max" class="btn btn-primary" onclick="checkMax()">Check Max</button>
+                <button type="button" id="random" class="btn btn-primary" onclick="random()">Ganrate Random Value</button>
+                <button type="button" id="cls" class="btn btn-primary" onclick="Clear()">Clear</button>
+            </div>
+
+            <h1>Answer : <span id="ans"></span></h1>
+        </div>
+    
+       
+    
+       
+    </div>
+   </div>
+
+
+    <script>
+        let v1 = document.getElementById("val-1")
+        let v2 = document.getElementById("val-2")
+        let v3 = document.getElementById("val-3")
+        let ansElement = document.getElementById("ans")
+
+        function random(){
+            a = parseInt(Math.random()*1000)
+            b = parseInt(Math.random()*1000)
+            c = parseInt(Math.random()*1000)
+
+            v1.value = a
+            v2.value = b
+            v3.value = c
+        }
+
+        function checkMin() {
+            a = Number(v1.value)
+            b = Number(v2.value)
+            c = Number(v3.value)
+          
+            // if (a < b) {
+            //     if (a < c) {
+            //         ansElement.innerHTML = `smallest number is ${a}`
+            //     } else {
+            //         ansElement.innerHTML = `smallest number is ${c}`
+            //     }
+            // } else if (b < c) {
+            //     ansElement.innerHTML = `smallest number is ${b}`
+            // } else {
+            //     ansElement.innerHTML = `smallest number is ${c}`
+            // }
+
+            let small = Math.min(a,b,c)
+            ansElement.innerHTML = `smallest number is ${small}`
+        }
+
+        function checkMax() {
+            a = Number(v1.value)
+            b = Number(v2.value)
+            c = Number(v3.value)
+
+            // if (a > b) {
+            //     if (a > c) {
+            //         ansElement.innerHTML = `Biggest number is ${a}`
+            //     } else {
+            //         ansElement.innerHTML = `Biggest number is ${c}`
+            //     }
+            // } else if (b > c) {
+            //     ansElement.innerHTML = `Biggest number is ${b}`
+            // } else {
+            //     ansElement.innerHTML = `Biggest number is ${c}`
+            // }
+
+            let small = Math.max(a,b,c)
+            ansElement.innerHTML = `biggest number is ${small}`
+        }
+
+        function Clear(){
+            v1.value = ""
+            v2.value = ""
+            v3.value = ""
+            ansElement.innerHTML = ""
+        }
+    </script>
+</body>
+
+</html>
