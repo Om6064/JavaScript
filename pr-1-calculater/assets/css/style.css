@@ -1,16 +1,62 @@
 
 .box {
     background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+   
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.ip {
+    border-radius: 0 !important;
+    padding: 5px;
+    padding-left: 7px;
+    caret-color: white;
+    color: white;
 }
 body{
     background-image: url("https://images.unsplash.com/photo-1615457670617-6b32cc6720a0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RhcnMlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D");
     background-size: cover;
+    background-position: center center;
 }
 input{
     outline: none !important;
+}
+.w-300{
+    width: 400px;
+}
+
+.animate{
+    background-color: #f4a641;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pointer{
+    cursor: pointer;
+    transition: .2s all linear;
+  } 
+  .hover-img:hover{
+    transform: scale(1.03);
+  }
+  .animate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: all 0.5s ease;
+  }
+  
+  .animate:hover::before {
+      left: 100%;
+    }
+.animate:hover {
+    background-color: #f4a641;
 }

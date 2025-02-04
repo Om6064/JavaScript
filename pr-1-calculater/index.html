@@ -11,26 +11,25 @@
 
 <body>
     <section class="vh-100  w-100 d-flex">
-        <div class="m-auto w-25 box">
-            <div class="  ">
-
+        <div class="m-auto w-300  p-4 box">
+            <div class="">
                 <div>
                     <form action="" class="text-center">
-                        <h1 class="my-5 text-light">Calculater : </h1>
-                        <span class="text-light">Value-1 : </span>
-                        <input type="text" id="value-1" class="w-75 my-3 box"><br>
+                        <h2 class="my-5 text-light">Calculator 🧮🌚✨</h2>
+                        <span class="text-light me-3">Value-1 : </span>
+                        <input type="text" id="value-1" class="w-75 my-3 box ip"><br>
 
-                        <span class="text-light">Value-2 : </span>
-                        <input type="text" id="value-2" class="w-75 my-3 box"><br>
-                        <button class="btn btn-light" id="add" type="button">+</button>
-                        <button class="btn btn-light" id="sub" type="button">-</button>
-                        <button class="btn btn-light" id="mul" type="button">*</button>
-                        <button class="btn btn-light" id="div" type="button">/</button>
-                        <button class="btn btn-light" id="cls" type="button">Clear</button>
+                        <span class="text-light me-3">Value-2 : </span>
+                        <input type="text" id="value-2" class="w-75 my-3 box ip"><br>
+                        <div class="my-3 d-flex justify-content-center gap-3">
+                            <button class="btn animate" id="add" type="button">+</button>
+                            <button class="btn animate" id="sub" type="button">-</button>
+                            <button class="btn animate" id="mul" type="button">*</button>
+                            <button class="btn animate" id="div" type="button">/</button>
+                            <button class="btn animate" id="cls" type="button">Clear</button>
+                        </div>
 
                         <h1 class="my-5 text-light">Ans : <span id="ans"></span></h1>
-
-
                     </form>
                 </div>
             </div>
@@ -56,7 +55,7 @@
 
         $("#add").on("click", function () {
             addition(Number(e1.value), Number(e2.value), ansElement)
-        }) 
+        })
         $("#sub").on("click", function () {
             subtraction(Number(e1.value), Number(e2.value), ansElement)
         })
