@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <link rel="stylesheet" href="./assets/bootstap.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <section class="w-100 vh-100 bg-img d-flex">
+        <form action="" class="m-auto" id="form">
+            <div class="container">
+                <h1 class="text-center">Form Validation</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name">Name :</label>
+                        <input type="text" name="name" id="name" class="form-control my-2">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="name">GR ID : </label>
+                        <input type="number" name="grid" id="grid" class="form-control my-2">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">Email : </label>
+                        <input type="email" name="email" id="email" class="form-control my-2">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="p-no">Phone No : </label>
+                        <input type="number" name="p-no" id="p-no" class="form-control my-2">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pass">PassWord : </label>
+                        <input type="password" name="pass" id="pass" class="form-control my-2">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="c-pass">Confirm PassWord :</label>
+                        <input type="password" name="c-pass" id="c-pass" class="form-control my-2">
+                    </div>
+                </div>
+                <div class="text-center my-3">
+                    <button type="submit" id="sub" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </section>
+
+    <script src="./assets/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            let nameEle = document.getElementById("name");
+            let gridEle = document.getElementById("grid");
+            let emailEle = document.getElementById("email");
+            let pnoEle = document.getElementById("p-no");
+            let passEle = document.getElementById("pass");
+            let cpassEle = document.getElementById("c-pass");
+            let form = document.getElementById("form")
+
+            $("#sub").on("click", function (e) {
+                e.preventDefault();
+
+
+
+                if (nameEle.value.trim() == "") {
+                    Swal.fire("Name Is Require : ");
+                    return
+                }
+
+                if (gridEle.value.trim() == "") {
+                    Swal.fire("GRID Is Require : ");
+                    return
+                } else if (gridEle.value.length !== 4) {
+                    Swal.fire("GRID IS NOT EQUALS 4 NUMBER : ");
+                    return
+                }
+
+                if(emailEle.value.trim() == ""){
+                    Swal.fire("email Is Require : ");
+                    return
+                }
+
+                if(pnoEle.value.trim() == ""){
+                    Swal.fire("phone no is require : ");
+                    return
+                }
+                else if(pnoEle.value.length !== 10){
+                    Swal.fire("PHONE NO IS NOT EQUALS 10 NUMBER : ");
+                    return
+                }
+
+                if (passEle.value.trim() == "" || cpassEle.value.trim() == "") {
+                    Swal.fire("password and confirm password are Require : ");
+                    return;
+                }else if(passEle.value.length < 8){
+                    Swal.fire("password is at least 8 character : ");
+                    return;
+                }else if(passEle.value !== cpassEle.value){
+                    Swal.fire("Pass and conform pass is not same : ");
+                    return;
+                }
+
+
+                Swal.fire({
+                    title: "Form Submited Successfully : ",
+                    icon: "success",
+                    draggable: true
+                }).then(() => {
+                    form.submit()
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>
