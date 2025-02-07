@@ -1,0 +1,21 @@
+<script>
+    let sub1 = Number(prompt("Enter English Marks"))
+    let sub2 = Number(prompt("Enter Hindi Marks"))
+    let sub3 = Number(prompt("Enter Gujarati Marks"))
+
+    let t_p = (sub1 + sub2 + sub3) / 3
+
+    if (t_p <= 100 && t_p >= 90) {
+        document.write("A")
+    } else if (t_p < 90 && t_p >= 80) {
+        document.write("B")
+    } else if (t_p < 80 && t_p >= 70) {
+        document.write("c")
+    } else if (t_p < 70 && t_p >= 60) {
+        document.write("D")
+    } else if (t_p < 60 && t_p >= 50) {
+        document.write("E")
+    } else {
+        document.write("F")
+    }
+</script>
