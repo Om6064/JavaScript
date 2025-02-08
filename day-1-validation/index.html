@@ -75,46 +75,46 @@
 
 
                 if (nameEle.value.trim() == "") {
-                    Swal.fire("Name Is Require : ");
+                    Swal.fire("Name Is Required...");
                     return
                 }
 
                 if (gridEle.value.trim() == "") {
-                    Swal.fire("GRID Is Require : ");
+                    Swal.fire("GRID Is Required...");
                     return
                 } else if (gridEle.value.length !== 4) {
-                    Swal.fire("GRID IS NOT EQUALS 4 NUMBER : ");
+                    Swal.fire("GRID should be 4 numbers long...");
                     return
                 }
 
                 if (emailEle.value.trim() == "") {
-                    Swal.fire("email Is Require : ");
+                    Swal.fire("email Is Required...");
                     return
                 }
 
                 if (pnoEle.value.trim() == "") {
-                    Swal.fire("phone no is require : ");
+                    Swal.fire("phone no. is required...");
                     return
                 }
                 else if (pnoEle.value.length !== 10) {
-                    Swal.fire("PHONE NO IS NOT EQUALS 10 NUMBER : ");
+                    Swal.fire("phone no. should be 4 numbers long...");
                     return
                 }
 
                 if (passEle.value.trim() == "" || cpassEle.value.trim() == "") {
-                    Swal.fire("password and confirm password are Require : ");
+                    Swal.fire("password and confirm password are Required...");
                     return;
                 } else if (passEle.value.length < 8) {
-                    Swal.fire("password is at least 8 character : ");
+                    Swal.fire("password should be 8 characters long...");
                     return;
                 } else if (passEle.value !== cpassEle.value) {
-                    Swal.fire("Pass and conform pass is not same : ");
+                    Swal.fire("Password and confirm password should be same...");
                     return;
                 }
 
 
                 Swal.fire({
-                    title: "Form Submited Successfully : ",
+                    title: "Form Submited Successfully...",
                     icon: "success",
                     draggable: true
                 }).then(() => {

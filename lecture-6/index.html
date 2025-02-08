@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chokta</title>
+</head>
+<style>
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        height: 100px;
+        width: 100px;
+        background-color: pink;
+        margin: 5px;
+        animation: ani 2s infinite linear;
+    }
+
+    .all-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* @keyframes ani {
+        0% {
+            background-color: aqua;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        20% {
+            background-color: blue;
+            border-radius: 70% 70% 70% 30% / 70% 30% 70% 30%;
+        }
+
+        40% {
+            background-color: aquamarine;
+            border-radius: 30% 70% 70% 70% / 70% 30% 70% 70%;
+        }
+
+        60% {
+            background-color: brown;
+            border-radius: 70% 70% 70% 70% / 30% 30% 30% 30%;
+        }
+
+        80% {
+            background-color: rgb(255, 4, 4);
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+        }
+
+        100% {
+            background-color: rgb(235, 235, 235);
+            border-radius: 70% 70% 70% 70% / 70% 70% 70% 70%;
+        }
+    } */
+</style>
+
+<body>
+    <input type="text" id="num">
+    <button type="button" onclick="done()">Done</button>
+    <div id="main-box" class="flex">
+
+    </div>
+</body>
+<script>
+    let m_b = document.getElementById("main-box")
+    let num = document.getElementById("num")
+    function done() {
+        m_b.innerHTML = ""
+        // for (let i = 1; i <= num.value; i++) {
+        //     m_b.innerHTML += `<div class="box all-center">${2**i}</div>`
+        // }
+        for (let i = 1; i <= num.value; i++) {
+            m_b.innerHTML += `<div class="box all-center">${i*num.value}</div>`
+        }
+    }
+</script>
+
+</html>
