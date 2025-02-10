@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="board">
+            <div class="cell" id="cell1"></div>
+            <div class="cell" id="cell2"></div>
+            <div class="cell" id="cell3"></div>
+            <div class="cell" id="cell4"></div>
+            <div class="cell" id="cell5"></div>
+            <div class="cell" id="cell6"></div>
+            <div class="cell" id="cell7"></div>
+            <div class="cell" id="cell8"></div>
+            <div class="cell" id="cell9"></div>
+        </div>
+        <div class="info">
+            <p id="status">Player <span id="turn">X</span> 's turn</p>
+            <button id="reset" onclick="reset()">Reset Game</button>
+            <div class="leaderboard">
+                <p><strong>Leaderboard:</strong></p>
+                <p>X Wins: <span id="xWins">0</span></p>
+                <p>O Wins: <span id="oWins">0</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/script.js"></script>
+
+    <script>
+        let count = 0;
+        let xcount = 0;
+        let ocount = 0;
+        function reset(){
+            count = 0;
+            document.getElementById("turn").innerHTML = "X";
+            console.log("hellooooo");
+            for (let i = 1; i <=9; i++) {
+                document.getElementById(`cell${i}`).innerHTML = "";
+            }   
+        }
+        function draw(){
+            if (count == 9) {
+                Swal.fire({
+                    title: `Draw!!` ,
+                    icon: "question",
+                    draggable: true
+                });
+                reset()
+            }
+        }
+        function checkWin(val) {
+            let flag = true;
+            for (let i = 1; i <= 3; i++) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+
+               
+            }
+            
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+             flag = true;
+            for (let i = 4; i <= 6; i++) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                 if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+
+             flag = true;
+            for (let i = 7; i <= 9; i++) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                 if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+
+             flag = true;
+            for (let i = 1; i <= 7; i+=3) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                 if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+             flag = true;
+            for (let i = 2; i <= 8; i+=3) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                 if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+             flag = true;
+            for (let i = 3; i <= 9; i+=3) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                 if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+             flag = true;
+            for (let i = 1; i <= 9; i+=4) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                 if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+             flag = true;
+            for (let i = 3; i <= 7; i+=2) {
+                let s = document.getElementById(`cell${i}`).innerHTML
+                console.log(s);
+                if (s != val) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                Swal.fire({
+                    title: `player ${val} Wins !!` ,
+                    icon: "success",
+                    draggable: true
+                });
+                reset();
+                 if (val == "X") {
+                    xcount++;
+                    document.getElementById("xWins").innerHTML = xcount;
+                }else{
+                    ocount++;
+                    document.getElementById("oWins").innerHTML = ocount;
+                }
+            }
+        }
+        $(document).ready(function () {
+            $(".cell").on("click", function () {
+                let tile = $(this)[0]
+
+                if (tile.innerHTML == "") {
+                    if (count % 2 == 0) {
+                        document.getElementById("turn").innerHTML = "O"
+                        tile.innerHTML = "X"
+
+                    } else {
+                        document.getElementById("turn").innerHTML = "X"
+                        tile.innerHTML = "O"
+                    }
+                    count++;
+                } else {
+                    Swal.fire({
+                        title: "OOPS!",
+                        text: "Can not be overwrite",
+                        icon: "warning"
+                    });
+                }
+
+                if (count >= 5) {
+                    let win = checkWin(tile.innerHTML)
+                    draw()
+                }
+            })
+        })
+      
+
+    </script>
+</body>
+
+</html>
