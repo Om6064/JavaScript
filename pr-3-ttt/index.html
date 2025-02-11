@@ -10,6 +10,7 @@
 
 <body>
     <div class="game-container">
+        <h1>TIC TAC TOE ❌ ⭕ </h1>
         <div class="board">
             <div class="cell" id="cell1"></div>
             <div class="cell" id="cell2"></div>
@@ -32,7 +33,7 @@
         </div>
     </div>
     <script src="./assets/js/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/backdrop.js"></script>
     <script src="./assets/js/script.js"></script>
 
     <script>
@@ -41,8 +42,7 @@
         let ocount = 0;
         function reset(){
             count = 0;
-            document.getElementById("turn").innerHTML = "X";
-            console.log("hellooooo");
+            document.getElementById("turn").innerHTML = "X";    
             for (let i = 1; i <=9; i++) {
                 document.getElementById(`cell${i}`).innerHTML = "";
             }   
@@ -52,7 +52,7 @@
                 Swal.fire({
                     title: `Draw!!` ,
                     icon: "question",
-                    draggable: true
+                    draggable: true,
                 });
                 reset()
             }
@@ -66,8 +66,6 @@
                     flag = false;
                     break;
                 }
-
-               
             }
             
 
@@ -75,7 +73,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                 if (val == "X") {
@@ -100,7 +98,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                  if (val == "X") {
@@ -126,7 +124,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                  if (val == "X") {
@@ -152,7 +150,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                  if (val == "X") {
@@ -177,7 +175,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                  if (val == "X") {
@@ -202,7 +200,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                  if (val == "X") {
@@ -227,7 +225,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                  if (val == "X") {
@@ -252,7 +250,7 @@
                 Swal.fire({
                     title: `player ${val} Wins !!` ,
                     icon: "success",
-                    draggable: true
+                    draggable: true,
                 });
                 reset();
                  if (val == "X") {
@@ -282,7 +280,7 @@
                     Swal.fire({
                         title: "OOPS!",
                         text: "Can not be overwrite",
-                        icon: "warning"
+                        icon: "warning",
                     });
                 }
 
