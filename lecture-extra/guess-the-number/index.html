@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Enter Number" id="num">
+    <button onclick="done()">Done</button>
+
+    <script>
+        let number = parseInt(Math.random() * 100)+1
+
+        function done() {
+            let num = Number(document.getElementById("num").value)
+            if (num < number) {
+                console.log("Too Low")
+            } else if (num > number) {
+                console.log("Too High")
+            } else {
+                console.log("Correct ! ")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
