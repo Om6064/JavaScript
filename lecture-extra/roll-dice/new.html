@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Dice</title>
+    <style>
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="flex">
+        <h1>1-6</h1>
+        <h1>7</h1>
+        <h1>8-12</h1>
+
+    </div>
+    <div>
+        <input type="text" id="user">
+        <input type="text" id="point" placeholder="How Many Point You bet">
+        <button onclick="done()">Roll Dice</button>
+    </div>
+    <h1 id="num"></h1>
+    <h1 id="win"></h1>
+    <h1 id="ans"></h1>
+
+
+    <script>
+
+
+        let score = 0;
+        document.getElementById("ans").innerHTML = ""
+        function done() {
+            let point = document.getElementById("point").value;
+            let num = Math.floor(Math.random() * 12) + 1
+            let user = document.getElementById("user").value
+            document.getElementById("num").innerHTML = num
+
+
+            if ((num < 7 && user < 7) || (num > 7 && user > 7)) {
+                score = parseInt(score) + parseInt(point)
+                document.getElementById("win").innerHTML = "you win"
+            } else if (num == 7 && user == 7) {
+                score = parseInt(score) + 7 + parseInt(point)
+                document.getElementById("win").innerHTML = "You Win!!"
+            }
+            else {
+                score = parseInt(score) - parseInt(point)
+                document.getElementById("win").innerHTML = "You Lose!!"
+            }
+            document.getElementById("ans").innerHTML = score
+
+
+        }
+
+    </script>
+</body>
+
+</html>

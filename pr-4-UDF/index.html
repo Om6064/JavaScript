@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Conveter</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="vh-100 d-flex ">
+    <div class="m-auto  p-5 rounded bg-white main-box">
+        <h1 class="text-black">Number Converter</h1>
+        <div class="mt-5">
+            <p class="text-black">Enter <span id="inputType"></span> Number For Convert</p>
+            <input type="text" id="num1" class="form-control virag-input">
+        </div>
+        <div class="d-flex gap-5 mt-3">
+
+            <div>
+
+                <label for="u1" class="text-black">From : </label>
+                <select id="u1" class="form-control">
+                    <option value="">--Select Type--</option>
+                    <option class="fortype" value="2">Binary</option>
+                    <option class="fortype" value="8">Octal</option>
+                    <option class="fortype" value="10">Decimal</option>
+                    <option class="fortype" value="16">Hexadecimal</option>
+                </select>
+            </div>
+            <div>
+                <label for="u2" class="text-black">To : </label>
+                <select id="u2" class="form-control">
+                    <option value="">--Select Type--</option>
+                    <option value="2">Binary</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select>
+            </div>
+        </div>
+
+
+        <button type="button" id="convert" class="btn-my my-3 w-100">Convert</button>
+
+        <div class="">
+            <p class="text-black">Show <span id="outputType"></span> Number Here</p>
+            <input type="text" id="num2" class="form-control">
+        </div>
+
+        <script src="./assets/js/jquery.js"></script>
+        <script src="./assets/js/sweetalert.js"></script>
+        <script>
+            let unit1 = document.getElementById("u1")
+            let unit2 = document.getElementById("u2")
+            let inputEle = document.getElementById("num1")
+            let inputType = document.getElementById("inputType")
+
+            $(document).ready(() => {
+
+
+
+
+                $("#u1").on("change", function () {
+                    let u1 = parseInt($(this).val());
+                    let inputType = $("#inputType");
+
+                    switch (u1) {
+                        case 2:
+                            inputType.text("Binary");
+                            break;
+                        case 8:
+                            inputType.text("Octal");
+                            break;
+                        case 10:
+                            inputType.text("Decimal");
+                            break;
+                        case 16:
+                            inputType.text("Hexadecimal");
+                            break;
+                        default:
+                            inputType.text("");
+                    }
+                });
+
+                $("#u2").on("change", function () {
+                    let u2 = parseInt($(this).val());
+                    let outputType = $("#outputType");
+
+                    switch (u2) {
+                        case 2:
+                            outputType.text("Binary");
+                            break;
+                        case 8:
+                            outputType.text("Octal");
+                            break;
+                        case 10:
+                            outputType.text("Decimal");
+                            break;
+                        case 16:
+                            outputType.text("Hexadecimal");
+                            break;
+                        default:
+                            outputType.text("");
+                    }
+                });
+
+
+                $("#convert").on("click", () => {
+
+                   
+
+                    let u1 = parseInt(unit1.value)
+                    let u2 = parseInt(unit2.value)
+                    let num = parseInt(inputEle.value)
+
+                    let desimalValue = parseInt(num);
+
+
+                    const regexBinary = /^[01]+$/;
+                    const regexOctal = /^[0-7]+$/; 
+                    const regexDecimal = /^[0-9]+$/; 
+                    const regexHexadecimal = /^[0-9a-fA-F]+$/; 
+
+
+                    let inputNum = inputEle.value;
+                    let validInput = false;
+
+                    switch (parseInt(unit1.value)) {
+                        case 2:
+                            validInput = regexBinary.test(inputNum);
+                            break;
+                        case 8:
+                            validInput = regexOctal.test(inputNum);
+                            break;
+                        case 10:
+                            validInput = regexDecimal.test(inputNum);
+                            break;
+                        case 16:
+                            validInput = regexHexadecimal.test(inputNum);
+                            break;
+                    }
+
+                    if (!validInput) {
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Invalid input..!",
+                        });
+                        return;
+                    }
+
+
+                    if (u1 == u2) {
+                        Swal.fire("Both Type is Same");
+                    }
+
+                    switch (u1) {
+                        case 2:
+                            desimalValue = parseInt(num, 2)
+
+                            break
+                        case 8:
+                            desimalValue = parseInt(num, 8)
+
+                            break
+                        case 16:
+                            desimalValue = parseInt(num, 16)
+                            break
+                    }
+
+                    let converted = 0;
+                    switch (u2) {
+                        case 2:
+                            converted = desimalValue.toString(2)
+                            break
+                        case 8:
+                            converted = desimalValue.toString(8)
+                            break
+                        case 10:
+                            converted = desimalValue.toString(10)
+                            break
+                        case 16:
+                            converted = desimalValue.toString(16)
+                            break
+                    }
+
+
+                    document.getElementById("num2").value = converted
+
+
+                })
+                let fort = document.getElementById("u1").value
+
+
+            })
+
+
+        </script>
+    </div>
+</body>
+
+</html>
