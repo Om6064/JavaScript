@@ -7,6 +7,7 @@
     <title>Number Conveter</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/nice-select.css">
 </head>
 
 <body class="vh-100 d-flex ">
@@ -19,28 +20,31 @@
         <div class="row justify-content-between mt-3">
 
             <div class="col-md-6 mb-3">
-
-                <label for="u1" class="text-black">From : </label>
-                <select id="u1" class="form-control">
-                    <option value="">--Select Type--</option>
-                    <option class="fortype" value="2">Binary</option>
-                    <option class="fortype" value="8">Octal</option>
-                    <option class="fortype" value="10">Decimal</option>
-                    <option class="fortype" value="16">Hexadecimal</option>
-                </select>
+                <div class="d-flex flex-column gap-3">
+                    <label for="u1" class="text-black">From : </label>
+                    <select id="u1" class="">
+                        <option value="">--Select Type--</option>
+                        <option class="fortype" value="2">Binary</option>
+                        <option class="fortype" value="8">Octal</option>
+                        <option class="fortype" value="10">Decimal</option>
+                        <option class="fortype" value="16">Hexadecimal</option>
+                    </select>
+                </div>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="u2" class="text-black">To : </label>
-                <select id="u2" class="form-control">
-                    <option value="">--Select Type--</option>
-                    <option value="2">Binary</option>
-                    <option value="8">Octal</option>
-                    <option value="10">Decimal</option>
-                    <option value="16">Hexadecimal</option>
-                </select>
+                <div class="d-flex flex-column gap-3">
+                    <label for="u2" class="text-black">To : </label>
+                    <select id="u2" class="">
+                        <option value="">--Select Type--</option>
+                        <option value="2">Binary</option>
+                        <option value="8">Octal</option>
+                        <option value="10">Decimal</option>
+                        <option value="16">Hexadecimal</option>
+                    </select>
+                </div>
             </div>
         </div>
-
+        <div id="danger-toast"></div>
 
         <button type="button" id="convert" class="btn-my my-3 w-100">Convert</button>
 
@@ -50,6 +54,8 @@
         </div>
 
         <script src="./assets/js/jquery.js"></script>
+        <script src="./assets/js/jquery.nice-select.js"></script>
+        <script src="./assets/js/sweet-alert.js"></script>
         <script src="./assets/js/sweetalert.js"></script>
         <script>
             let unit1 = document.getElementById("u1")
@@ -58,8 +64,24 @@
             let inputType = document.getElementById("inputType")
 
             $(document).ready(() => {
-
-
+                $("select").niceSelect();
+                function toast(color, msg) {
+                    const toast = window.Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        showCloseButton: true,
+                        animation: true,
+                        customClass: {
+                            popup: `color-${color}`,
+                        },
+                        target: document.getElementById(color + '-toast'),
+                    });
+                    toast.fire({
+                        title: msg,
+                    });
+                }
 
 
                 $("#u1").on("change", function () {
@@ -109,8 +131,6 @@
 
                 $("#convert").on("click", () => {
 
-                   
-
                     let u1 = parseInt(unit1.value)
                     let u2 = parseInt(unit2.value)
                     let num = parseInt(inputEle.value)
@@ -119,10 +139,9 @@
 
 
                     const regexBinary = /^[01]+$/;
-                    const regexOctal = /^[0-7]+$/; 
-                    const regexDecimal = /^[0-9]+$/; 
-                    const regexHexadecimal = /^[0-9a-fA-F]+$/; 
-
+                    const regexOctal = /^[0-7]+$/;
+                    const regexDecimal = /^[0-9]+$/;
+                    const regexHexadecimal = /^[0-9a-fA-F]+$/;
 
                     let inputNum = inputEle.value;
                     let validInput = false;
@@ -143,16 +162,11 @@
                     }
 
                     if (!validInput) {
-                        Swal.fire({
-                            icon: "warning",
-                            title: "Invalid input..!",
-                        });
+                        let color = 'danger';
+                        let msg = 'Invalid Input';
+                        toast(color, msg);
+
                         return;
-                    }
-
-
-                    if (u1 == u2) {
-                        Swal.fire("Both Type is Same");
                     }
 
                     switch (u1) {
@@ -187,6 +201,15 @@
 
 
                     document.getElementById("num2").value = converted
+
+
+                    if (u1 == u2) {
+                        let color = 'warning';
+                        let msg = 'Both Type Are Same ! ';
+                        toast(color, msg);
+
+                        document.getElementById("num2").value = ""
+                    }
 
 
                 })

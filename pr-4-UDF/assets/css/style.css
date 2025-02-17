@@ -32,6 +32,17 @@ body {
     box-shadow: none !important;
 }
 
-
-
-
+.color-danger {
+    background-color: #e7515a !important;
+    color: white !important;
+}
+.swal2-close {
+    color: white !important;
+}
+.swal2-close:hover {
+    color: white !important;
+}
+.color-warning {
+    background-color: #e2a03f !important;
+    color: white !important;
+}
