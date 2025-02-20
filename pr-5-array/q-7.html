@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <input type="text" id="input3">
+    <input type="text" id="input4">
+    <input type="text" id="input5">
+    <button onclick="ans()">Click Me</button>
+    <p></p>
+    <h1 id="ans"></h1>
+
+    <script>
+        function ans(){
+            let arr = []
+            for (let i = 1; i <=5; i++) {
+                val = document.getElementById(`input${i}`).value;
+                arr.push(val)
+            }
+            arr.sort((a,b) => a-b)
+            for(let i = 1; i<=5; i++){
+                document.getElementById(`input${i}`).value = arr[i-1]
+            }
+
+            document.getElementById("ans").innerHTML = `second lower is ${arr[1]} ans second largest is ${arr[3]}`
+        }
+    </script>
+
+
+
+</body>
+</html>

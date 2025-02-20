@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <input type="text" id="input3">
+    <input type="text" id="input4">
+    <button onclick="ans()">Click me</button>
+    <h1 id="ans"></h1>
+
+
+    <script>
+        function ans(){
+            let arr = []
+            for (let index = 1; index <=4 ; index++) {
+                    let val = document.getElementById(`input${index}`).value;
+                    arr.push(val)
+            }
+            let uniqueArray = arr.filter((item, index) => arr.indexOf(item) === index);
+            document.getElementById("ans").innerHTML = uniqueArray
+
+        }
+    </script>
+
+
+</body>
+</html>
