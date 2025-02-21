@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anagram Checker</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./bootstrap.css">
     <style>
         /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover;
+            /* background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover; */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -69,18 +72,28 @@
         }
     </style>
 </head>
-<body>
-    <input type="text" id="pali" placeholder="Enter first string">
-    <input type="text" id="pali2" placeholder="Enter second string">
-    <button onclick="ans()">Check</button>
 
-    <h1 id="ans"></h1>
+<body>
+
+    <div id="particles-js">
+    </div>
+    <div class="position-relative z-3">
+        <input type="text" id="pali" placeholder="Enter first string">
+        <input type="text" id="pali2" placeholder="Enter second string">
+        <button onclick="ans()">Check</button>
+
+        <h1 class="text-center" id="ans"></h1>
+    </div>
+
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script src="./particle.js"></script>
 
     <script>
         function ans() {
             let ana = document.getElementById("pali").value.toLowerCase().replace(/\s/g, '');
             let ana2 = document.getElementById("pali2").value.toLowerCase().replace(/\s/g, '');
-            
+
             let firstSorted = ana.split("").sort().join("");
             let secondSorted = ana2.split("").sort().join("");
 
@@ -89,4 +102,5 @@
         }
     </script>
 </body>
+
 </html>

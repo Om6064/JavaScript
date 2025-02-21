@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./bootstrap.css">
     <style>
         /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover;
+            /* background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover; */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -68,19 +71,35 @@
         }
     </style>
 </head>
+
 <body>
-    <input type="text" id="pali" placeholder="Enter a string for Palindrome check">
-    <button onclick="ans()">Check</button>
 
-    <h1 id="ans"></h1>
+    <div id="particles-js">
+    </div>
 
+    <div class=" position-relative z-3">
+        <div class="text-center">
+            <input type="text" id="pali" placeholder="Enter a string for Palindrome check">
+        </div>
+        <div class="text-center">
+            <button onclick="ans()">Check</button>
+        </div>
+
+        <h1 id="ans"></h1>
+    </div>
+    </div>
+
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script src="./particle.js"></script>
     <script>
-       function ans() {
+        function ans() {
             let pali = document.getElementById("pali").value.toLowerCase();
             let reversed = pali.split("").reverse().join("");
             let result = (reversed === pali) ? "It is a Palindrome!! 🎉" : "It is NOT a Palindrome!! ❌";
             document.getElementById("ans").innerHTML = result;
-       }
+        }
     </script>
 </body>
+
 </html>
