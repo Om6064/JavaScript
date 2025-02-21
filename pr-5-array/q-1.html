@@ -3,24 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Palindrome Checker</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Input Field */
+        input {
+            width: 280px;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            outline: none;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Button */
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #ff9800;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Button Hover Effect */
+        button:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* Button Active Effect */
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Result Display */
+        h1 {
+            margin-top: 20px;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="pali" placeholder="Enter String From palindrome">
-    <button onclick="ans()">Click Me</button>
+    <input type="text" id="pali" placeholder="Enter a string for Palindrome check">
+    <button onclick="ans()">Check</button>
 
     <h1 id="ans"></h1>
 
     <script>
-       function ans(){
-        let pali = ""
-        pali = document.getElementById("pali").value.toLowerCase()
-        let ans = pali.toLowerCase().split("").reverse().join("")
-        if(ans == pali){
-            document.getElementById("ans").innerHTML = "It is Palindrome !!"
-        }else{
-             document.getElementById("ans").innerHTML = "It is Not Palindrome !!"
-        }
+       function ans() {
+            let pali = document.getElementById("pali").value.toLowerCase();
+            let reversed = pali.split("").reverse().join("");
+            let result = (reversed === pali) ? "It is a Palindrome!! 🎉" : "It is NOT a Palindrome!! ❌";
+            document.getElementById("ans").innerHTML = result;
        }
     </script>
 </body>

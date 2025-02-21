@@ -3,35 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Find Second Smallest & Largest</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Input Fields */
+        input {
+            width: 220px;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            outline: none;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            margin: 5px;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Button */
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #ff9800;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Button Hover Effect */
+        button:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* Button Active Effect */
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Output Styling */
+        h1 {
+            margin-top: 20px;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="input1">
-    <input type="text" id="input2">
-    <input type="text" id="input3">
-    <input type="text" id="input4">
-    <input type="text" id="input5">
-    <button onclick="ans()">Click Me</button>
-    <p></p>
+
+    <input type="number" id="input1" placeholder="Enter number 1">
+    <input type="number" id="input2" placeholder="Enter number 2">
+    <input type="number" id="input3" placeholder="Enter number 3">
+    <input type="number" id="input4" placeholder="Enter number 4">
+    <input type="number" id="input5" placeholder="Enter number 5">
+
+    <button onclick="findSecondValues()">Check</button>
+
     <h1 id="ans"></h1>
 
     <script>
-        function ans(){
-            let arr = []
-            for (let i = 1; i <=5; i++) {
-                val = document.getElementById(`input${i}`).value;
-                arr.push(val)
-            }
-            arr.sort((a,b) => a-b)
-            for(let i = 1; i<=5; i++){
-                document.getElementById(`input${i}`).value = arr[i-1]
+        function findSecondValues() {
+            let arr = [];
+            for (let i = 1; i <= 5; i++) {
+                let val = document.getElementById(`input${i}`).value;
+                arr.push(Number(val));  // Convert input values to numbers
             }
 
-            document.getElementById("ans").innerHTML = `second lower is ${arr[1]} ans second largest is ${arr[3]}`
+            arr.sort((a, b) => a - b); // Sort the array in ascending order
+
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`input${i}`).value = arr[i - 1];
+            }
+
+            document.getElementById("ans").innerHTML = 
+                arr.length >= 4 
+                ? `🥈 Second Smallest: <b>${arr[1]}</b> | 🥈 Second Largest: <b>${arr[3]}</b>` 
+                : "⚠️ Please enter valid numbers!";
         }
     </script>
-
-
 
 </body>
 </html>

@@ -3,30 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Unique Array Values</title>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Input Fields */
+        input {
+            width: 250px;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid white;
+            border-radius: 8px;
+            outline: none;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            margin: 8px;
+            display: block;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Button */
+        button {
+            margin-top: 10px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #ff9800;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Button Hover Effect */
+        button:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* Button Active Effect */
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Output Styling */
+        h1 {
+            margin-top: 15px;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="input1">
-    <input type="text" id="input2">
-    <input type="text" id="input3">
-    <input type="text" id="input4">
-    <button onclick="ans()">Click me</button>
+
+    <input type="text" id="input1" placeholder="Enter value 1">
+    <input type="text" id="input2" placeholder="Enter value 2">
+    <input type="text" id="input3" placeholder="Enter value 3">
+    <input type="text" id="input4" placeholder="Enter value 4">
+
+    <button onclick="ans()">Get Unique Values</button>
+
     <h1 id="ans"></h1>
 
-
     <script>
-        function ans(){
-            let arr = []
-            for (let index = 1; index <=4 ; index++) {
-                    let val = document.getElementById(`input${index}`).value;
-                    arr.push(val)
+        function ans() {
+            let arr = [];
+            for (let i = 1; i <= 4; i++) {
+                let val = document.getElementById(`input${i}`).value.trim();
+                arr.push(val);
             }
-            let uniqueArray = arr.filter((item, index) => arr.indexOf(item) === index);
-            document.getElementById("ans").innerHTML = uniqueArray
-
+            
+            // Remove empty values & get unique items
+            let uniqueArray = arr.filter((item, index) => item && arr.indexOf(item) === index);
+            
+            document.getElementById("ans").innerHTML = uniqueArray.length > 0
+                ? `Unique Values: <b>${uniqueArray.join(", ")}</b>`
+                : "❌ No unique values found!";
         }
     </script>
-
 
 </body>
 </html>
