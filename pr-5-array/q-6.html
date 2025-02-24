@@ -1,84 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vowel & Consonant Counter</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Input Field */
-        input {
-            width: 300px;
-            padding: 12px;
-            font-size: 18px;
-            border: 2px solid #fff;
-            border-radius: 8px;
-            outline: none;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            margin: 10px;
-        }
-
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Button */
-        button {
-            margin-top: 15px;
-            padding: 12px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            background: #ff9800;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        /* Button Hover Effect */
-        button:hover {
-            background: #e68900;
-            transform: scale(1.05);
-        }
-
-        /* Button Active Effect */
-        button:active {
-            transform: scale(0.95);
-        }
-
-        /* Output Display */
-        h1 {
-            margin-top: 20px;
-            color: white;
-            text-shadow: 2px 2px 5px black;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css"> <!-- Linking External CSS -->
 </head>
 
 <body>
-    <input type="text" id="inputText" placeholder="Enter text to count vowels & consonants">
-    <button onclick="countVowelsConsonants()">Check</button>
+    <div class="gooey-bg"></div> <!-- Animated Gooey Background -->
+    <div class="wrapper"></div> <!-- Animated Background -->
 
-    <h1 id="ans"></h1>
+    <div class="container">
+        <h1 class="title">🔤 Vowel & Consonant Counter</h1>
+
+        <div class="input-group">
+            <input type="text" id="inputText" class="input-box" placeholder="📝 Type something...">
+        </div>
+
+        <div class="button-container">
+            <button onclick="countVowelsConsonants()" class="convert-button">Check ✅</button>
+        </div>
+
+        <h1 id="ans" class="result-text"></h1>
+    </div>
 
     <script>
         function countVowelsConsonants() {
-            let str = document.getElementById("inputText").value.toLowerCase();
+            let str = document.getElementById("inputText").value.toLowerCase().trim();
+            let outputElement = document.getElementById("ans");
+
+            if (str === "") {
+                outputElement.innerHTML = "⚠️ Please enter some text!";
+                outputElement.className = "result-text"; // Remove any existing styles
+                return;
+            }
+
             let vowels = "aeiou";
             let vowelCount = 0, consonantCount = 0;
 
@@ -90,11 +48,10 @@
                 }
             }
 
-            // Display result with emojis
-            document.getElementById("ans").innerHTML = 
-                str ? `🔠 Vowels: <b>${vowelCount}</b> | 🅰️ Consonants: <b>${consonantCount}</b>` 
-                    : "⚠️ Please enter some text!";
+            outputElement.innerHTML = `🔠 Vowels: <b>${vowelCount}</b> | 🅰️ Consonants: <b>${consonantCount}</b>`;
         }
-    </script>
+
+    </script> <!-- Linking External JS -->
 </body>
+
 </html>

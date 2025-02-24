@@ -1,89 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uppercase Converter</title>
-    
-    <style>
-        /* Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Input Field */
-        input {
-            width: 300px;
-            padding: 12px;
-            font-size: 18px;
-            border: 2px solid #fff;
-            border-radius: 8px;
-            outline: none;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            margin: 10px;
-        }
-
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Button */
-        button {
-            margin-top: 15px;
-            padding: 12px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            background: #ff9800;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        /* Button Hover Effect */
-        button:hover {
-            background: #e68900;
-            transform: scale(1.05);
-        }
-
-        /* Button Active Effect */
-        button:active {
-            transform: scale(0.95);
-        }
-
-        /* Output Display */
-        h1 {
-            margin-top: 20px;
-            color: white;
-            text-shadow: 2px 2px 5px black;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css"> <!-- Linking External CSS -->
 </head>
-<body>
-    <input type="text" id="inputString" placeholder="Enter text to convert to UPPERCASE">
-    <button onclick="convertToUppercase()">Convert</button>
 
-    <h1 id="output"></h1>
+<body>
+    <div class="wrapper"></div> <!-- Animated Gooey Background -->
+
+    <div class="container">
+        <h1 class="title">🔠 Uppercase Converter 🔠</h1>
+
+        <div class="input-group">
+            <input type="text" id="inputString" class="input-box" placeholder="✍️ Type here...">
+        </div>
+
+        <div class="button-container">
+            <button onclick="convertToUppercase()" class="convert-button">Convert 🔤</button>
+        </div>
+
+        <h1 id="output" class="result-text"></h1>
+    </div>
 
     <script>
         function convertToUppercase() {
-            let inputText = document.getElementById("inputString").value;
+            let inputText = document.getElementById("inputString").value.trim();
+            let outputElement = document.getElementById("output");
+
+            if (inputText === "") {
+                outputElement.innerHTML = "⚠️ Please enter some text!";
+                return;
+            }
+
             let uppercaseText = inputText.toUpperCase();
-            
-            // Display the result
-            document.getElementById("output").innerHTML = uppercaseText ? `🔠 ${uppercaseText}` : "⚠️ Please enter some text!";
+            outputElement.innerHTML = `🔠 ${uppercaseText}`;
         }
-    </script>
+    </script> <!-- Linking External JS -->
 </body>
+
 </html>
