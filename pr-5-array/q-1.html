@@ -74,10 +74,14 @@
 
 <body>
 
+    
+
     <div id="particles-js">
     </div>
+  
 
     <div class=" position-relative z-3">
+        <h1 class="text-white text-center fs-1">Palindrome Checker</h1>
         <div class="text-center">
             <input type="text" id="pali" placeholder="Enter a string for Palindrome check">
         </div>
@@ -89,12 +93,15 @@
     </div>
     </div>
 
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- <script src="http://threejs.org/examples/js/libs/stats.min.js"></script> -->
     <script src="./particle.js"></script>
     <script>
         function ans() {
             let pali = document.getElementById("pali").value.toLowerCase();
+            if (pali.trim()== "") {
+                document.getElementById("ans").innerHTML = "invalid input";
+            }
             let reversed = pali.split("").reverse().join("");
             let result = (reversed === pali) ? "It is a Palindrome!! 🎉" : "It is NOT a Palindrome!! ❌";
             document.getElementById("ans").innerHTML = result;
