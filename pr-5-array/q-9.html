@@ -24,11 +24,29 @@
         <div class="button-container">
             <button onclick="findUnique()" class="calculate-button">Get Unique Values 🎯</button>
         </div>
+        <div class="button-container">
+            <button onclick="withrandom()" class="calculate-button">Random Ganrate 🎯</button>
+        </div>
 
         <h1 id="ans" class="result-text"></h1>
     </div>
 
     <script>
+        function withrandom(){
+            let arr = [];
+            for (let i = 1; i <= 4; i++) {
+                let val = parseInt(Math.random()*100);
+                document.getElementById(`input${i}`).value = val
+                arr.push(val);
+            }
+
+            let uniqueArray = arr.filter((item, index) => item && arr.indexOf(item) === index);
+            let resultElement = document.getElementById("ans");
+
+            resultElement.innerHTML = uniqueArray.length > 0
+                ? `✅ Unique Values: <b>${uniqueArray.join(", ")}</b>`
+                : "❌ No unique values found!";
+        }
         function findUnique() {
             let arr = [];
             for (let i = 1; i <= 4; i++) {

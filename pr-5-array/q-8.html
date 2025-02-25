@@ -26,12 +26,39 @@
         <div class="button-container">
             <button id="submit" class="calculate-button">Check Prime ✅</button>
         </div>
+        <div class="button-container">
+            <button id="random" class="calculate-button">Check Prime Randomly✅</button>
+        </div>
 
         <h1 id="display" class="result-text"></h1>
     </div>
 
     <script>
         $(document).ready(function () {
+
+            $("#random").on("click", function () {
+                let arr = [];
+                for (let i = 1; i <= 5; i++) {
+                    let val = parseInt(Math.random()*100);
+                    document.getElementById(`input${i}`).value = val
+                    arr.push(val);
+                }
+
+                function isPrime(num) {
+                    if (num <= 1) return false;
+                    for (let i = 2; i * i <= num; i++) {
+                        if (num % i === 0) return false;
+                    }
+                    return true;
+                }
+
+                let primeNumbers = arr.filter(isPrime);
+                let outputElement = $("#display");
+
+                outputElement.html(primeNumbers.length > 0
+                    ? `✅ Prime Numbers: <b>${primeNumbers.join(", ")}</b>`
+                    : "❌ No prime numbers found!");
+            });
             $("#submit").on("click", function () {
                 let arr = [];
                 for (let i = 1; i <= 5; i++) {

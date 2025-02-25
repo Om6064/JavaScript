@@ -25,11 +25,46 @@
         <div class="button-container">
             <button onclick="findSecondValues()" class="calculate-button">Check ✅</button>
         </div>
+        <div class="button-container">
+            <button onclick="withrandom()" class="calculate-button">Check Randomly ✅</button>
+        </div>
 
         <h1 id="ans" class="result-text"></h1>
     </div>
 
     <script>
+        function withrandom(){
+            let arr = [];
+            let outputElement = document.getElementById("ans");
+
+           
+            for (let i = 1; i <= 5; i++) {
+                let val = parseInt(Math.random()*100);
+                document.getElementById(`input${i}`).value = val
+                arr.push(Number(val));  
+            }
+
+          
+            if (arr.some(isNaN)) {
+                outputElement.innerHTML = "⚠️ Please enter valid numbers!";
+                return;
+            }
+
+           
+            arr.sort((a, b) => a - b);
+
+          
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`input${i}`).value = arr[i - 1];
+            }
+
+            //
+            outputElement.innerHTML =
+                arr.length >= 4
+                    ? `🥈 Second Smallest: <b>${arr[1]}</b> | 🥈 Second Largest: <b>${arr[3]}</b>`
+                    : "⚠️ Please enter valid numbers!";
+
+        }
         function findSecondValues() {
             let arr = [];
             let outputElement = document.getElementById("ans");
