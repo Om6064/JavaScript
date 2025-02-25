@@ -1,16 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
     <link rel="stylesheet" href="./style.css">
 </head>
-
-
 <body>
-    <div class="wrapper"></div> <!-- Animated Background -->
+    <div class="gooey-bg"></div> <!-- Animated Gooey Background -->
+    <div class="wrapper"></div>
 
     <div class="container">
         <h1>Palindrome Checker</h1>
         <input type="text" id="pali" placeholder="🔄 Enter a word...">
         <button onclick="ans()">Check 🔍</button>
-        <h1 id="ans"></h1>
+        <h1 id="ans" class="result-text"></h1>
     </div>
 
     <script>
@@ -24,11 +28,12 @@
             }
 
             let reversed = pali.split("").reverse().join("");
-            if (reversed == pali) {
-                document.getElementById("ans").innerHTML = "It is Palindrome !!"
+            if (reversed === pali) {
+                resultElement.innerHTML = "✅ It is a Palindrome!";
             } else {
-                document.getElementById("ans").innerHTML = "It is Not Palindrome !!"
+                resultElement.innerHTML = "❌ It is Not a Palindrome!";
             }
         }
     </script>
 </body>
+</html>

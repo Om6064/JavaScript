@@ -34,28 +34,27 @@
             let arr = [];
             let outputElement = document.getElementById("ans");
 
-            // Get input values
+           
             for (let i = 1; i <= 5; i++) {
                 let val = document.getElementById(`input${i}`).value;
-                arr.push(Number(val));  // Convert input values to numbers
+                arr.push(Number(val));  
             }
 
-            // Validate input
+          
             if (arr.some(isNaN)) {
                 outputElement.innerHTML = "⚠️ Please enter valid numbers!";
-                outputElement.className = "result-text"; // Remove glowing effect
                 return;
             }
 
-            // Sort the array in ascending order
+           
             arr.sort((a, b) => a - b);
 
-            // Update input boxes with sorted values
+          
             for (let i = 1; i <= 5; i++) {
                 document.getElementById(`input${i}`).value = arr[i - 1];
             }
 
-            // Display result with glowing effect
+            //
             outputElement.innerHTML =
                 arr.length >= 4
                     ? `🥈 Second Smallest: <b>${arr[1]}</b> | 🥈 Second Largest: <b>${arr[3]}</b>`
@@ -63,7 +62,7 @@
 
         }
 
-    </script> <!-- External JavaScript -->
+    </script>
 </body>
 
 </html>

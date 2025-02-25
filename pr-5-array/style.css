@@ -116,3 +116,6 @@ button:active {
     color: #ff4444;
     text-shadow: 0 0 10px #ff4444;
 }
+.result-text{
+    margin-top: 10px;
+}
