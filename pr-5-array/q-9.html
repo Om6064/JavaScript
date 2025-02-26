@@ -32,34 +32,61 @@
     </div>
 
     <script>
-        function withrandom(){
+        function withrandom() {
             let arr = [];
-            for (let i = 1; i <= 4; i++) {
-                let val = parseInt(Math.random()*100);
-                document.getElementById(`input${i}`).value = val
-                arr.push(val);
-            }
-
-            let uniqueArray = arr.filter((item, index) => item && arr.indexOf(item) === index);
             let resultElement = document.getElementById("ans");
 
-            resultElement.innerHTML = uniqueArray.length > 0
-                ? `✅ Unique Values: <b>${uniqueArray.join(", ")}</b>`
-                : "❌ No unique values found!";
-        }
-        function findUnique() {
-            let arr = [];
             for (let i = 1; i <= 4; i++) {
                 let val = document.getElementById(`input${i}`).value.trim();
                 arr.push(val);
             }
+            let frequency = {};
+            console.log(frequency);
+            
+            arr.forEach(value => {
+                if (frequency[value] !== undefined) {
+                    frequency[value] = frequency[value] + 1;
+                } else {
+                    frequency[value] = 1;
+                }
 
-            let uniqueArray = arr.filter((item, index) => item && arr.indexOf(item) === index);
+            });
+
+            let uniqueValues = arr.filter(value => frequency[value] === 1);
+
+            if (uniqueValues.length > 0) {
+                resultElement.innerHTML = "Unique Values: " + uniqueValues.join(", ");
+            } else {
+                resultElement.innerHTML = "No Unique Value Found";
+            }
+        }
+        function findUnique() {
+            let arr = [];
             let resultElement = document.getElementById("ans");
 
-            resultElement.innerHTML = uniqueArray.length > 0
-                ? `✅ Unique Values: <b>${uniqueArray.join(", ")}</b>`
-                : "❌ No unique values found!";
+            for (let i = 1; i <= 4; i++) {
+                let val = document.getElementById(`input${i}`).value.trim();
+                arr.push(val);
+            }
+            let frequency = {};
+            console.log(frequency);
+            
+            arr.forEach(value => {
+                if (frequency[value] !== undefined) {
+                    frequency[value] = frequency[value] + 1;
+                } else {
+                    frequency[value] = 1;
+                }
+
+            });
+
+            let uniqueValues = arr.filter(value => frequency[value] === 1);
+
+            if (uniqueValues.length > 0) {
+                resultElement.innerHTML = "Unique Values: " + uniqueValues.join(", ");
+            } else {
+                resultElement.innerHTML = "No Unique Value Found";
+            }
         }
 
     </script>

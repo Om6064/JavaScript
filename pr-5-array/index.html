@@ -21,62 +21,88 @@
             backdrop-filter: blur(5px);
         }
 
+        /* Container */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 3;
+        }
+
         /* Heading */
         h1 {
             color: white;
             text-shadow: 2px 2px 5px black;
             margin-bottom: 20px;
-            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
         }
 
-        /* Links as Buttons */
-        a {
-            display: block;
-            width: 250px;
-            padding: 12px;
-            margin: 10px;
-            text-align: center;
+        /* Program List */
+        .program-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* Buttons (Same Color Theme) */
+        .program-list a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: white;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 8px;
+            /* background: linear-gradient(135deg, #040404, #1fc33a); */
+            background: rgba(0, 0, 0, 0.381) !important;
+            border-radius: 10px;
             transition: 0.3s;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Hover Effect */
-        a:hover {
-            /* background: rgba(255, 255, 255, 0.2); */
+        /* Hover Effect (Same for All) */
+        .program-list a:hover {
             transform: scale(1.05);
+            /* background: linear-gradient(135deg, #1fc33a, #040404); */
+            background: rgba(0, 0, 0, 0.381) !important;
         }
 
         /* Active Effect */
-        a:active {
+        .program-list a:active {
             transform: scale(0.95);
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 
-<body class="">
+<body>
     <div class="gooey-bg"></div> <!-- Animated Gooey Background -->
     <div class="wrapper"></div>
 
-    <div class="d-flex align-items-center justify-content-center position-relative z-3">
-        <div>
-            <h1>Array Programs</h1>
+    <div class="container">
+        <h1>Array Programs</h1>
+        <ul class="program-list">
             <a href="./q-1.html" target="_blank">Palindrome</a>
             <a href="./q-2.html" target="_blank">Anagrams</a>
             <a href="./q-3.html" target="_blank">Uppercase</a>
             <a href="./q-4.html" target="_blank">LowerCase</a>
             <a href="./q-5.html" target="_blank">ToogleCase</a>
             <a href="./q-6.html" target="_blank">Vowel-Consonant</a>
-            <a href="./q-7.html" target="_blank">SecondSmall-SecondLarge</a>
-            <a href="./q-8.html" target="_blank">PrimeNumbers</a>
+            <a href="./q-7.html" target="_blank">Second Smallest & Largest</a>
+            <a href="./q-8.html" target="_blank">Prime Numbers</a>
             <a href="./q-9.html" target="_blank">Unique Array</a>
             <a href="./q-10.html" target="_blank">Longest Word</a>
-        </div>
+        </ul>
     </div>
 </body>
 
