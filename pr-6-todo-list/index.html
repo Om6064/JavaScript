@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do List</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="row">
+            <div class="my-4 col-6">
+                <label for="task">Task : </label>
+                <input class="form-control" type="text" id="task" placeholder="Enter Task">
+            </div>
+            <div class="my-4 col-6">
+                <label for="priority">Priority : </label>
+                <select class="form-control" id="priority">
+                    <option value="-1" id="p-id">--Select Priority--</option>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button id="click" onclick="addTask()" class="btn btn-success bg-gradient">Click Me</button>
+        </div> -->
+
+        <div class="d-flex vh-100 bg-color">
+            <div class="m-auto bg-color">
+                
+            </div>
+        </div>
+
+        <div class="row my-4 gy-4" id="task-row">
+            <!-- <div class="col-lg-4">
+                <div class="bg-primary p-4">
+                    <h2 id="withtask" class="text-white"></h2>
+                    <p class="my-3 text-white" id="withpriority"></p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+<script>
+    function addTask() {
+        let task = document.getElementById("task")
+        let priority = document.getElementById("priority")
+        // let p_id = document.getElementById("p-id").value
+
+        let arr = []
+
+        let obj = {
+            task: task.value,
+            priority: parseInt(priority.value)
+        }
+        console.log(obj);
+        
+
+        arr.push(obj)
+
+        if (task.value == "" || priority.value == -1) {
+            alert("invalid input")
+            return
+        }
+
+        function getPriorityLabel(priority) {
+            switch (priority) {
+                case 1:
+                    return "Low"
+                case 2:
+                    return "Medium";
+                case 3:
+                    return "High";
+            }
+        }
+        function getBgColor(priority) {
+            switch (priority) {
+                case 1:
+                    return "bg-primary"
+                case 2:
+                    return "bg-success";
+                case 3:
+                    return "bg-danger";
+            }
+        }
+        function getBgColor(priority) {
+            switch (priority) {
+                case 1:
+                    return "bg-primary"
+                case 2:
+                    return "bg-success";
+                case 3:
+                    return "bg-danger";
+            }
+        }
+
+    
+        // document.getElementById("withtask").innerHTML = `${obj.task}`
+        // document.getElementById("withpriority").innerHTML = `${obj.priority}`
+
+        // document.getElementById("task-row").innerHTML = ""
+        arr.forEach((obj, idx) => {
+            document.getElementById("task-row").innerHTML +=
+                `<div class="col-lg-4">
+                <div class="${getBgColor(obj.priority)} bg-gradient rounded p-4">
+                    <h2 id="withtask" class="text-white">${obj.task}</h2>
+                    <p class="my-3 text-white" id="withpriority">${getPriorityLabel(obj.priority)}</p>
+                </div>
+            </div>
+            `
+        })
+
+    }
+</script>
+
+</html>
