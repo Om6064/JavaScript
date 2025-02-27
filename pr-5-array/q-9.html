@@ -22,16 +22,24 @@
         </div>
 
         <div class="button-container">
-            <button onclick="findUnique()" class="calculate-button">Get Unique Values 🎯</button>
+            <button onclick="findUnique()" class="calculate-button w-100">Get Unique Values 🎯</button>
         </div>
         <div class="button-container">
-            <button onclick="withrandom()" class="calculate-button">Random Ganrate 🎯</button>
+            <button onclick="withrandom()" class="calculate-button w-100">Random Ganrate 🎯</button>
+        </div>
+
+        <div class="flex gap-10">
+            <button class="w-50" onclick="allclear()">Reset ❌</button>
+            <a href="./index.html"><button >Go To Home 🏠</button></a>
         </div>
 
         <h1 id="ans" class="result-text"></h1>
     </div>
 
     <script>
+        function allclear(){
+            document.getElementById("pali").value = ""
+        }
         function withrandom() {
             let arr = [];
             let resultElement = document.getElementById("ans");

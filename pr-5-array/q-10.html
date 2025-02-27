@@ -16,12 +16,20 @@
 
         <input type="text" id="str" class="input-box" placeholder="📝 Enter a sentence...">
 
-        <button id="btn" onclick="findLongest()" class="btn">Find Word 🚀</button>
+        <button id="btn" onclick="findLongest()" class="btn w-100">Find Word 🚀</button>
+
+        <div class="flex gap-10">
+            <button class="w-50" onclick="allclear()">Reset ❌</button>
+            <a href="./index.html"><button >Go To Home 🏠</button></a>
+        </div>
 
         <h1 id="ans" class="result-text"></h1>
     </div>
 
     <script>
+        function allclear(){
+            document.getElementById("pali").value = ""
+        }
         function findLongest() {
             let inputStr = document.getElementById('str').value;
             let words = inputStr.split(" ");

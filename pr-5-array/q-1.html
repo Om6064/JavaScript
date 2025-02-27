@@ -13,11 +13,18 @@
     <div class="container">
         <h1>Palindrome Checker</h1>
         <input type="text" id="pali" placeholder="🔄 Enter a word...">
-        <button onclick="ans()">Check 🔍</button>
+        <button onclick="ans()" class="w-100">Check 🔍</button>
+        <div class="flex gap-10">
+            <button class="w-50" onclick="allclear()">Reset ❌</button>
+            <a href="./index.html"><button >Go To Home 🏠</button></a>
+        </div>
         <h1 id="ans" class="result-text"></h1>
     </div>
 
     <script>
+        function allclear(){
+            document.getElementById("pali").value = ""
+        }
         function ans() {
             let pali = document.getElementById("pali").value.toLowerCase().trim();
             let resultElement = document.getElementById("ans");

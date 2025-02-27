@@ -23,13 +23,22 @@
         </div>
 
         <div class="button-container">
-            <button onclick="checkAnagram()" class="check-button">Check 🔍</button>
+            <button onclick="checkAnagram()" class="check-button w-100">Check 🔍</button>
         </div>
+        <div class="flex gap-10">
+            <button class="w-50" onclick="allclear()">Reset ❌</button>
+            <a href="./index.html"><button >Go To Home 🏠</button></a>
+        </div>
+
+
 
         <h1 id="result" class="result-text"></h1>
     </div>
 
     <script>
+        function allclear(){
+            document.getElementById("pali").value = ""
+        }
         function checkAnagram() {
             let word1 = document.getElementById("word1").value.toLowerCase()
             let word2 = document.getElementById("word2").value.toLowerCase()

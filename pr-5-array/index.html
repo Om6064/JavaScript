@@ -82,6 +82,47 @@
             transform: scale(0.95);
             background: rgba(255, 255, 255, 0.3);
         }
+        * {
+            box-sizing: border-box;
+        }
+
+        /* .cards:hover .card {
+            background: radial-gradient(100rem circle at var(--xPos) var(--yPos), rgba(0, 255, 241, 0.4), transparent 15%);
+        } */
+
+        .cards .card {
+            /* width: 20rem;
+            height: 15rem; */
+            background-color: #13161c;
+            /* background: radial-gradient(150rem circle at 0 0, rgba(0, 255, 241, 0), transparent 0%); */
+            border-radius: 0.5rem;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            position: relative;
+            transition: all 0.15s linear;
+        }
+
+        /* .cards .card:hover {
+            transform: scale(0.97);
+        } */
+
+        .cards .card:hover::before {
+            opacity: 1;
+        }
+
+        .cards .card::before {
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: inherit;
+            background: radial-gradient(60rem circle at var(--xPos) var(--yPos), rgba(0, 255, 241, 0.1), transparent 35%);
+            opacity: 0;
+            transition: all 0.15s ease-in-out;
+        }
     </style>
 </head>
 
@@ -91,19 +132,38 @@
 
     <div class="container">
         <h1>Array Programs</h1>
-        <ul class="program-list">
-            <a href="./q-1.html" target="_blank">Palindrome</a>
-            <a href="./q-2.html" target="_blank">Anagrams</a>
-            <a href="./q-3.html" target="_blank">Uppercase</a>
-            <a href="./q-4.html" target="_blank">LowerCase</a>
-            <a href="./q-5.html" target="_blank">ToogleCase</a>
-            <a href="./q-6.html" target="_blank">Vowel-Consonant</a>
-            <a href="./q-7.html" target="_blank">Second Smallest & Largest</a>
-            <a href="./q-8.html" target="_blank">Prime Numbers</a>
-            <a href="./q-9.html" target="_blank">Unique Array</a>
-            <a href="./q-10.html" target="_blank">Longest Word</a>
+       <div class="">
+        <ul class="program-list cards">
+            <a class="card card-content" href="./q-1.html" target="_blank">Palindrome</a>
+            <a class="card card-content" href="./q-2.html" target="_blank">Anagrams</a>
+            <a class="card card-content" href="./q-3.html" target="_blank">Uppercase</a>
+            <a class="card card-content" href="./q-4.html" target="_blank">LowerCase</a>
+            <a class="card card-content" href="./q-5.html" target="_blank">ToogleCase</a>
+            <a class="card card-content" href="./q-6.html" target="_blank">Vowel-Consonant</a>
+            <a class="card card-content" href="./q-7.html" target="_blank">Second Smallest & Largest</a>
+            <a class="card card-content" href="./q-8.html" target="_blank">Prime Numbers</a>
+            <a class="card card-content" href="./q-9.html" target="_blank">Unique Array</a>
+            <a class="card card-content" href="./q-10.html" target="_blank">Longest Word</a>
         </ul>
+       </div>
     </div>
+
+    <script>
+        const cards = document.querySelectorAll(".card");
+        const wrapper = document.querySelector(".cards");
+
+        wrapper.addEventListener("mousemove", function ($event) {
+            cards.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const x = $event.clientX - rect.left;
+                const y = $event.clientY - rect.top;
+
+                card.style.setProperty("--xPos", `${x}px`);
+                card.style.setProperty("--yPos", `${y}px`);
+            });
+        });
+
+    </script>
 </body>
 
 </html>

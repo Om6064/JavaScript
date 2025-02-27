@@ -20,13 +20,19 @@
         </div>
 
         <div class="button-container">
-            <button onclick="countVowelsConsonants()" class="convert-button">Check ✅</button>
+            <button onclick="countVowelsConsonants()" class="convert-button w-100">Check ✅</button>
         </div>
-
+        <div class="flex gap-10">
+            <button class="w-50" onclick="allclear()">Reset ❌</button>
+            <a href="./index.html"><button >Go To Home 🏠</button></a>
+        </div>
         <h1 id="ans" class="result-text"></h1>
     </div>
 
     <script>
+        function allclear(){
+            document.getElementById("pali").value = ""
+        }
         function countVowelsConsonants() {
             let str = document.getElementById("inputText").value.toLowerCase().trim();
             let outputElement = document.getElementById("ans");

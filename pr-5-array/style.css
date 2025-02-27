@@ -85,6 +85,19 @@ button {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.w-100{
+    width: 100%;
+}
+.w-50{
+    width: 50%;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+/* .gap-10{
+    gap: 10px;
+} */
 
 /* ---- Button Hover Effect ---- */
 button:hover {

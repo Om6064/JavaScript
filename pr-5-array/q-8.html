@@ -24,16 +24,23 @@
         </div>
 
         <div class="button-container">
-            <button id="submit" class="calculate-button">Check Prime ✅</button>
+            <button id="submit" class="calculate-button w-100">Check Prime ✅</button>
         </div>
         <div class="button-container">
-            <button id="random" class="calculate-button">Check Prime Randomly✅</button>
+            <button id="random" class="calculate-button w-100">Check Prime Randomly✅</button>
+        </div>
+        <div class="flex gap-10">
+            <button class="w-50" onclick="allclear()">Reset ❌</button>
+            <a href="./index.html"><button >Go To Home 🏠</button></a>
         </div>
 
         <h1 id="display" class="result-text"></h1>
     </div>
 
     <script>
+        function allclear(){
+            document.getElementById("pali").value = ""
+        }
         $(document).ready(function () {
 
             $("#random").on("click", function () {

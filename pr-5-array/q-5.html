@@ -20,13 +20,21 @@
         </div>
 
         <div class="button-container">
-            <button onclick="toggleCase()" class="convert-button">Convert 🔠</button>
+            <button onclick="toggleCase()" class="convert-button w-100">Convert 🔠</button>
+        </div>
+
+        <div class="flex gap-10">
+            <button class="w-50" onclick="allclear()">Reset ❌</button>
+            <a href="./index.html"><button >Go To Home 🏠</button></a>
         </div>
 
         <h1 id="output" class="result-text"></h1>
     </div>
 
     <script>
+        function allclear(){
+            document.getElementById("pali").value = ""
+        }
         function toggleCase() {
             let inputText = document.getElementById("inputString").value.trim();
             let outputElement = document.getElementById("output");
