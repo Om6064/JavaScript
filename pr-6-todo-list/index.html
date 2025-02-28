@@ -12,7 +12,7 @@
 
 <body>
     <div class="d-flex vh-100">
-        
+
         <div class="todo-app m-auto">
             <h1 class="text-center text-white mb-3">TO-DO LIST</h1>
             <form class="input-section gap-1 my-5">
@@ -46,95 +46,97 @@
                         <span class="span-button"><i class="fa-solid fa-pen"></i></span>
                     </li>
                 </ul> -->
-
-                <!-- <img class="face" id="notFoundImage"
-                    src="https://tse1.mm.bing.net/th?id=OIP.ffPZnhWt5-A5j83c3AWWnwHaE8&pid=Api&P=0&h=180" alt="">
-                <h1 class="not-found face" id="notFoundText"> NOT FOUND</h1> -->
+                <!-- 
+                <div class="center">
+                    <img class="face" id="notFoundImage"
+                    src="https://tse1.mm.bing.net/th?id=OIP.ffPZnhWt5-A5j83c3AWWnwHaE8&pid=Api&P=0&h=180" alt=""> -->
+                <!-- <h1 class="not-found face" id="notFoundText"> NOT FOUND</h1> -->
             </div>
         </div>
     </div>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+
+
+
+        function addTask() {
+            document.getElementById("notFoundImage")?.remove();
+            document.getElementById("notFoundText")?.remove();
+
+            let task = document.getElementById("todoInput")
+            let priority = document.getElementById("search-input")
+            // let p_id = document.getElementById("p-id").value
+
+            let arr = []
+
+            let obj = {
+                task: task.value,
+                priority: parseInt(priority.value)
+            }
+
+
+            arr.push(obj)
+
+            if (task.value == "" || priority.value == -1) {
+                alert("invalid input")
+                return
+            }
+
+            function getPriorityLabel(priority) {
+                switch (priority) {
+                    case 1:
+                        return "Low"
+                    case 2:
+                        return "Medium";
+                    case 3:
+                        return "High";
+                }
+            }
+            function getBgColor(priority) {
+                switch (priority) {
+                    case 1:
+                        return "bg-primary"
+                    case 2:
+                        return "bg-success";
+                    case 3:
+                        return "bg-danger";
+                }
+            }
+
+
+
+            // document.getElementById("withtask").innerHTML = `${obj.task}`
+            // document.getElementById("withpriority").innerHTML = `${obj.priority}`
+
+            // document.getElementById("task-row").innerHTML = ""
+            arr.forEach((obj, idx) => {
+                document.getElementById("task-row").innerHTML +=
+                    `
+                 <ul class="todo-list id=todo-id">
+                    <li class="li ${getBgColor(obj.priority)}">
+              <input class="form-check-input" type="checkbox" value="option1">
+              <label class="form-check-label" for="inlineCheckbox1"></label>
+              <span class="todo-text">${obj.task}</span>
+              <span class="todo-text">${getPriorityLabel(obj.priority)}</span>
+              <span class="span-button resetd"><i class="fa-solid fa-trash"></i></span>
+              <span class="span-button"><i class="fa-solid fa-pen"></i></span>
+            </li>
+                    </ul>
+                 `
+            })
+
+
+            $(document).on("click", ".resetd", function () {
+                $(this).closest("li").remove();
+            });
+        }
+
+
+
+
+
+    </script>
 </body>
-
-</html>
-
-<script>
-    function addTask() {
-        document.getElementById("notFoundImage")?.remove();
-        document.getElementById("notFoundText")?.remove();
-
-        let task = document.getElementById("todoInput")
-        let priority = document.getElementById("search-input")
-        // let p_id = document.getElementById("p-id").value
-
-        let arr = []
-
-        let obj = {
-            task: task.value,
-            priority: parseInt(priority.value)
-        }
-        console.log(obj);
-
-
-        arr.push(obj)
-
-        if (task.value == "" || priority.value == -1) {
-            alert("invalid input")
-            return
-        }
-
-        function getPriorityLabel(priority) {
-            switch (priority) {
-                case 1:
-                    return "Low"
-                case 2:
-                    return "Medium";
-                case 3:
-                    return "High";
-            }
-        }
-        function getBgColor(priority) {
-            switch (priority) {
-                case 1:
-                    return "bg-primary"
-                case 2:
-                    return "bg-success";
-                case 3:
-                    return "bg-danger";
-            }
-        }
-        function getBgColor(priority) {
-            switch (priority) {
-                case 1:
-                    return "bg-primary"
-                case 2:
-                    return "bg-success";
-                case 3:
-                    return "bg-danger";
-            }
-        }
-
-
-        // document.getElementById("withtask").innerHTML = `${obj.task}`
-        // document.getElementById("withpriority").innerHTML = `${obj.priority}`
-
-        // document.getElementById("task-row").innerHTML = ""
-        arr.forEach((obj, idx) => {
-            document.getElementById("task-row").innerHTML +=
-                `
-             <ul class="todo-list">
-                <li class="li">
-          <input class="form-check-input" type="checkbox" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1"></label>
-          <span class="todo-text">text</span>
-          <span class="todo-text">date</span>
-          <span class="span-button"><i class="fa-solid fa-trash"></i></span>
-          <span class="span-button"><i class="fa-solid fa-pen"></i></span>
-        </li>
-                </ul>
-             `
-        })
-
-    }
-</script>
 
 </html>
