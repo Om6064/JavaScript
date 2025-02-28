@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Number Finder</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -37,9 +37,13 @@
         <h1 id="display" class="result-text"></h1>
     </div>
 
+    <script src="./jquery.js"></script>
     <script>
         function allclear(){
-            document.getElementById("pali").value = ""
+            for(let i =1 ; i<=5;i++){
+                document.getElementById(`input${i}`).value = ""
+            }
+            document.getElementById("display").innerHTML = ""
         }
         $(document).ready(function () {
 

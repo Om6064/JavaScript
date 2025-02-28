@@ -38,7 +38,10 @@
 
     <script>
         function allclear(){
-            document.getElementById("pali").value = ""
+            for(let i =1 ; i<=5;i++){
+                document.getElementById(`input${i}`).value = ""
+            }
+            document.getElementById("ans").innerHTML = ""
         }
         function withrandom(){
             let arr = [];
