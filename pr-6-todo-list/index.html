@@ -7,49 +7,63 @@
     <title>to-do List</title>
     <link rel="stylesheet" href="./bootstrap.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 
 <body>
-    <div class="container">
-        <!-- <div class="row">
-            <div class="my-4 col-6">
-                <label for="task">Task : </label>
-                <input class="form-control" type="text" id="task" placeholder="Enter Task">
-            </div>
-            <div class="my-4 col-6">
-                <label for="priority">Priority : </label>
-                <select class="form-control" id="priority">
-                    <option value="-1" id="p-id">--Select Priority--</option>
-                    <option value="1">Low</option>
-                    <option value="2">Medium</option>
-                    <option value="3">High</option>
-                </select>
-            </div>
-        </div>
-        <div>
-            <button id="click" onclick="addTask()" class="btn btn-success bg-gradient">Click Me</button>
-        </div> -->
+    <div class="d-flex vh-100">
+        
+        <div class="todo-app m-auto">
+            <h1 class="text-center text-white mb-3">TO-DO LIST</h1>
+            <form class="input-section gap-1 my-5">
+                <div class="col-6">
+                    <label for="todoInput" class="text-white ms-3 my-2">Task : </label>
+                    <input id="todoInput" type="text" placeholder="Add Task..." class="form-control" />
 
-        <div class="d-flex vh-100 bg-color">
-            <div class="m-auto bg-color">
-                
-            </div>
-        </div>
-
-        <div class="row my-4 gy-4" id="task-row">
-            <!-- <div class="col-lg-4">
-                <div class="bg-primary p-4">
-                    <h2 id="withtask" class="text-white"></h2>
-                    <p class="my-3 text-white" id="withpriority"></p>
                 </div>
-            </div> -->
+                <div class="col-4">
+                    <label for="search-input" class="text-white ms-3 my-2">Priority : </label>
+                    <select name="" id="search-input" class="form-control">
+                        <option value="-1">--Select Priority--</option>
+                        <option value="1">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="3">High</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <p class="text-tranparant">dumy text</p>
+                    <button type="button" onclick="addTask()" class="" id="search-button">Add Task</button>
+                </div>
+            </form>
+            <div class="todos overflow-auto" id="task-row">
+                <!-- <ul class="todo-list">
+                    <li class="li">
+                        <input class="form-check-input" type="checkbox" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1"></label>
+                        <span class="todo-text">text</span>
+                        <span class="todo-text">date</span>
+                        <span class="span-button"><i class="fa-solid fa-trash"></i></span>
+                        <span class="span-button"><i class="fa-solid fa-pen"></i></span>
+                    </li>
+                </ul> -->
+
+                <img class="face" id="notFoundImage"
+                    src="https://tse1.mm.bing.net/th?id=OIP.ffPZnhWt5-A5j83c3AWWnwHaE8&pid=Api&P=0&h=180" alt="">
+                <h1 class="not-found face" id="notFoundText"> NOT FOUND</h1>
+            </div>
         </div>
     </div>
 </body>
+
+</html>
+
 <script>
     function addTask() {
-        let task = document.getElementById("task")
-        let priority = document.getElementById("priority")
+        document.getElementById("notFoundImage")?.remove();
+        document.getElementById("notFoundText")?.remove();
+
+        let task = document.getElementById("todoInput")
+        let priority = document.getElementById("search-input")
         // let p_id = document.getElementById("p-id").value
 
         let arr = []
@@ -59,7 +73,7 @@
             priority: parseInt(priority.value)
         }
         console.log(obj);
-        
+
 
         arr.push(obj)
 
@@ -99,20 +113,25 @@
             }
         }
 
-    
+
         // document.getElementById("withtask").innerHTML = `${obj.task}`
         // document.getElementById("withpriority").innerHTML = `${obj.priority}`
 
         // document.getElementById("task-row").innerHTML = ""
         arr.forEach((obj, idx) => {
             document.getElementById("task-row").innerHTML +=
-                `<div class="col-lg-4">
-                <div class="${getBgColor(obj.priority)} bg-gradient rounded p-4">
-                    <h2 id="withtask" class="text-white">${obj.task}</h2>
-                    <p class="my-3 text-white" id="withpriority">${getPriorityLabel(obj.priority)}</p>
-                </div>
-            </div>
-            `
+                `
+             <ul class="todo-list">
+                <li class="li">
+          <input class="form-check-input" type="checkbox" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1"></label>
+          <span class="todo-text">text</span>
+          <span class="todo-text">date</span>
+          <span class="span-button"><i class="fa-solid fa-trash"></i></span>
+          <span class="span-button"><i class="fa-solid fa-pen"></i></span>
+        </li>
+                </ul>
+             `
         })
 
     }
