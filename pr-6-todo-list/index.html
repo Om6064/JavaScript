@@ -31,7 +31,7 @@
                     </select>
                 </div>
                 <div class="col-2">
-                    <p class="text-tranparant">dumy text</p>
+                    <p class="text-tranparant   ">dumy text</p>
                     <button type="button" onclick="addTask()" class="" id="search-button">Add Task</button>
                 </div>
             </form>
@@ -73,6 +73,7 @@
     </div>
     </div>
     <script src="./jquery.js"></script>
+    <script src="./sweetalert.js"></script>
     <script>
 
 
@@ -96,7 +97,10 @@
             arr.push(obj)
 
             if (task.value == "" || priority.value == -1) {
-                alert("invalid input")
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Input",
+                });
                 return
             }
 
@@ -157,19 +161,19 @@
                 let spanElement = $(this).siblings(".adddtask");
                 let currentText = spanElement.text();
 
-        
+
                 let inputElement = $(`<input type="text" class="form-control edit-input" value="${currentText}">`);
                 spanElement.replaceWith(inputElement);
                 inputElement.on("keypress", function (e) {
                     console.log(e);
-                    
-                    if (e.which === 13) { 
+
+                    if (e.which === 13) {
                         saveTaskText(inputElement);
                     }
                 });
             });
 
-            
+
             function saveTaskText(inputElement) {
                 let newText = inputElement.val().trim();
                 let spanElement = $(`<span class="todo-text adddtask">${newText}</span>`);
