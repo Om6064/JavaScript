@@ -1,0 +1,13 @@
+.bg-color{
+    background-color: #e0e0e0;
+}
+.bg-small-color{
+ border-radius: 10px;
+background: #e0e0e0;
+box-shadow:  20px 20px 60px #544e4e71,
+             -20px -20px 60px #6056568a;
+}
+.daba{
+    box-shadow: inset 20px 20px 60px #544e4e71,
+            inset -20px -20px 60px #6056568a;
+}
