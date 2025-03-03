@@ -387,6 +387,9 @@ button:hover {
   flex: 1;
   font-size: 16px;
 }
+.p-6-12{
+  padding: 6px 12px;
+}
 
 .span-button {
   color: white;
