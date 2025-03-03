@@ -11,59 +11,36 @@
 </head>
 
 <body>
-    <div class="d-flex vh-100">
-
-        <div class="todo-app m-auto">
-            <h1 class="text-center text-white mb-3">TO-DO LIST</h1>
-            <form class="input-section gap-1 my-5">
-                <div class="col-6">
-                    <label for="todoInput" class="text-white ms-3 my-2">Task : </label>
-                    <input id="todoInput" type="text" placeholder="Add Task..." class="form-control" />
-
+    <div class="container d-flex vh-100">
+        <div class="todo-app m-auto w-50">
+            <h1 class="text-center text-white mb-3">📋 TO-DO LIST ✅</h1>
+            <form class="row g-3 align-items-end my-4">
+                <div class="col-md-6">
+                    <label for="todoInput" class="text-white">📝 Task :</label>
+                    <input id="todoInput" type="text" placeholder="✍️ Add Task..." class="form-control" aria-label="Task Input"/>
                 </div>
-                <div class="col-4">
-                    <label for="search-input" class="text-white ms-3 my-2">Priority : </label>
-                    <select name="" id="search-input" class="form-control">
+                <div class="col-md-4">
+                    <label for="search-input" class="text-white">⚡ Priority :</label>
+                    <select id="search-input" class="form-control" aria-label="Priority Selection">
                         <option value="-1">--Select Priority--</option>
-                        <option value="1">Low</option>
-                        <option value="2">Medium</option>
-                        <option value="3">High</option>
+                        <option value="1">🟢 Low</option>
+                        <option value="2">🟡 Medium</option>
+                        <option value="3">🔴 High</option>
                     </select>
                 </div>
-                <div class="col-2">
-                    <p class="text-tranparant   ">dumy text</p>
-                    <button type="button" onclick="addTask()" class="" id="search-button">Add Task</button>
+                <div class="col-md-2 text-center">
+                    <button type="button" onclick="addTask()" class="btn btn-primary">➕ Add</button>
                 </div>
             </form>
             <div class="todos overflow-auto" id="task-row">
-                <!-- <ul class="todo-list">
-                    <li class="li">
-                        <input class="form-check-input" type="checkbox" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"></label>
-                        <span class="todo-text">text</span>
-                        <span class="todo-text">date</span>
-                        <span class="span-button"><i class="fa-solid fa-trash"></i></span>
-                        <span class="span-button"><i class="fa-solid fa-pen"></i></span>
-                    </li>
-                </ul> -->
-                <!-- 
-                <div class="center">
-                    <img class="face" id="notFoundImage"
-                    src="https://tse1.mm.bing.net/th?id=OIP.ffPZnhWt5-A5j83c3AWWnwHaE8&pid=Api&P=0&h=180" alt=""> -->
-                <!-- <h1 class="not-found face" id="notFoundText"> NOT FOUND</h1> -->
-
-                <table class="table">
+                <table class="table table-responsive">
                     <tbody>
-                        <tr class="">
+                        <tr>
                             <td class="rounded-4 border-0 bg-transparent">
-                                <div class="todo-row">
-                                    <!-- <input class="form-check-input" type="ho" value="option1"> -->
-                                    <label class="form-check-label" for="inlineCheckbox1"></label>
-                                    <span class="todo-text">Task Name</span>
-                                    <span class="todo-text">Priority</span>
-                                    <!-- <span class="span-button"><i class="fa-solid fa-trash"></i></span>
-                                    <span class="span-button"><i class="fa-solid fa-pen"></i></span> -->
-                                    <span class="text-white">delete/edit</span>
+                                <div class="todo-row d-flex justify-content-between">
+                                    <span class="todo-text">📌 Task Name</span>
+                                    <span class="todo-text">⚡ Priority</span>
+                                    <span class="text-white">🗑️ / ✏️</span>
                                 </div>
                             </td>
                         </tr>
@@ -71,7 +48,6 @@
                 </table>
             </div>
         </div>
-    </div>
     </div>
     <script src="./jquery.js"></script>
     <script src="./sweetalert.js"></script>
@@ -118,9 +94,9 @@
             function getBgColor(priority) {
                 switch (priority) {
                     case 1:
-                        return "bg-primary"
+                        return "bg-green"
                     case 2:
-                        return "bg-success";
+                        return "bg-yellow";
                     case 3:
                         return "bg-danger";
                 }
@@ -135,9 +111,9 @@
             arr.forEach((obj, idx) => {
                 document.getElementById("task-row").innerHTML +=
                     `
-                 <table class="table">
+                <table class="table">
                     <tbody>
-                        <tr >
+                        <tr>
                             <td class="${getBgColor(obj.priority)} rounded-4 border-0">
                                 <div class="todo-row">
                                    
