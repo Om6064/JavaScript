@@ -22,7 +22,7 @@
                 <div class="col-md-4">
                     <label for="search-input" class="text-white">⚡ Priority :</label>
                     <select id="search-input" class="form-control" aria-label="Priority Selection">
-                        <option value="-1">--Select Priority--</option>
+                        <option value="-1">Select Priority</option>
                         <option value="1">🟢 Low</option>
                         <option value="2">🟡 Medium</option>
                         <option value="3">🔴 High</option>
@@ -32,12 +32,12 @@
                     <button type="button" onclick="addTask()" class="btn btn-primary p-6-12">Add</button>
                 </div>
             </form>
-            <div class="todos overflow-auto" id="task-row">
+            <div class="todos p-0 overflow-auto" id="task-row">
                 <table class="table table-responsive">
                     <tbody>
                         <tr>
-                            <td class="rounded-4 border-0 bg-transparent">
-                                <div class="todo-row d-flex justify-content-between">
+                            <td class="p-0 rounded-4 border-0 bg-transparent">
+                                <div class="todo-row  d-flex justify-content-between">
                                     <span class="todo-text">📌 Task Name</span>
                                     <span class="todo-text">⚡ Priority</span>
                                     <span class="text-white">🗑️ / ✏️</span>

@@ -379,7 +379,6 @@ button:hover {
   background: rgba(255, 255, 255, 0.2);
   padding: 12px;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .todo-text {
