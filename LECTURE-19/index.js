@@ -5,7 +5,7 @@ class Animal{
     }
 
     getInfo(){
-        console.log(`Name : ${this.name} Color : ${this.color} Type : ${this.type}`);
+        console.log(`Name : ${this.name} Color : ${this.color} `);
     }
 
     cleanUp(){
@@ -19,6 +19,9 @@ class Dog extends Animal{
         this.type= type
     }
 
+    getInfo(){
+        console.log(`Name : ${this.name} Color : ${this.color} Type : ${this.type}`);
+    }
     
 
 }

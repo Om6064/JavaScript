@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+
+<body>
+    <input type="number" id="input" placeholder="Enter Seconds for Timer">
+    <button onclick="starttimer()">Start Timer</button>
+
+
+    <h1>Seconds : <span id="seconds"></span></h1>
+
+    <script>
+        function starttimer() {
+            let input = document.querySelector("#input")
+            let output = document.querySelector("#seconds")
+
+            let count = parseInt(input.value);
+
+           for(let i = 0; i <=count; i++){
+            setTimeout(() => {
+                output.innerHTML = count
+                console.log(count);
+                count--;
+            },i * 1000)
+           }
+        }
+    </script>
+</body>
+
+</html>
