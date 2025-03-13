@@ -1,12 +1,32 @@
-.d-flex input{
-    margin: .9em 0em;
+.d-flex input,.row input{
+    margin: .9em 0em !important;
+    box-shadow: none !important;
+    background-color: #212034 !important;
+    border: 2px solid #383850 !important;
+    color: white !important;
 }
+.d-flex input::placeholder,.row input::placeholder{
+    color: white;
+}
+.d-flex input:focus,.row input:focus{
+    border: 2px solid white !important;
+}
+
 
 .d-flex button {
     margin: 1.5em .6em;
     padding: .3em 2.4em;
 }
 
-body{
+body {
     background-color: #181826 !important;
+}
+
+.box {
+    background: #212034;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid #383752;
 }
