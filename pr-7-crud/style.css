@@ -29,3 +29,77 @@ body {
     border-radius: 10px;
     border: 1px solid #383752;
 }
+.responsive{
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .box {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .d-flex input, .row input {
+        font-size: 14px;
+    }
+
+    .d-flex button {
+        padding: .4em 1.8em;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .d-flex input, .row input {
+        font-size: 13px;
+    }
+
+    .d-flex button {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .table th, .table td {
+        padding: 0.5rem;
+    }
+}
+
+/* Extra Small Devices (320px) */
+@media (max-width: 320px) {
+    .box {
+        padding: 0.8rem;
+        max-width: 100%;
+    }
+
+    .d-flex input, .row input {
+        font-size: 12px;
+    }
+
+    .d-flex button {
+        font-size: 12px;
+        width: 100%;
+        padding: .4em 1em;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    .table th, .table td {
+        padding: 0.4rem;
+    }
+}
