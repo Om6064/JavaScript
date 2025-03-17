@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+  background: rgba(0,0,0,0.8) !important;
+  color: rgba(255,255,255,0.8) !important;
+  font: 100% 'Lato', sans-serif !important;
+  text-align: center !important;
+  padding: 2% !important;
+}
+#pomodoro {
+  display: grid !important;
+  place-items: center !important;
+  grid-template-columns: repeat(2,1fr) !important;
+  grid-template-rows: 1fr 1fr 4fr !important;
+  grid-template-areas: 
+    'session reset'
+    'text text'
+    'display display';
+}
+.session {
+  text-align: center !important;
+  padding: 2% !important;
+}
+
+.session {
+  grid-area: session ;
+  width: 25% ;
+}
+
+
+
+
+.display {
+  grid-area: display ;
+  background: rgba(255,255,255,1) ;
+  color: rgba(0,0,0,0.8) ;
+  display: flex ;
+  justify-content: center ;
+  align-items: center ;
+  flex-direction: column ;
+  
+    
+  height: 200px ;
+  width: 200px ;
+  margin: auto ;
+  border-radius: 50% ;
+  border: 5px solid red ;
+  box-shadow:  
+    -5px -5px 50px rgba(0,0,0,0.5) 
+    5px 5px 50px rgba(0,0,0,0.2) inset ;
+}
+
+@media only screen and (min-width: 768px) {
+  #pomodoro {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: 1fr 3fr !important;
+    grid-template-areas:  
+      'session text reset'
+      'display display display' !important;
+  }
+  .display {
+    height: 400px !important;
+    width: 400px !important;
+    font-size: 500% !important;
+    border-radius: 50% !important;
+    border: 5px solid red !important;
+  }
+}
+input{
+    height: 50px;
+    width: 50px;
+    font-size:20px !important;
+    margin-bottom: 20px !important;
+}

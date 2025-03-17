@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Timer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <svg class="progress-ring" width="200" height="200">
+            <circle cx="100" cy="100" r="100"></circle>
+        </svg>
+        <div class="circle">
+            <span class="time">00:00</span>
+        </div>
+    </div>
+</body>
+</html>
