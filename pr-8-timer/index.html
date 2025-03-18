@@ -7,97 +7,130 @@
     <title>Timer</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 
 <body>
     <section id="pomodoro">
+        <h1 class="mb-4 text-white">⏳ Stylish Countdown Timer</h1>
         <audio loop id="play" src="http://www.soundjay.com/button/beep-07.wav"></audio>
         <div class="display">
-            <div class="me-3">
-                <label for="session"></label>
-                <input class="session" id="hou" type="number" placeholder="HH">
-                <label for="session"></label>
-                <input class="session" id="min" type="number" placeholder="MM">
-                <label for="session"></label>
-                <input class="session" id="sec" type="number" placeholder="SS">
-            </div>
-            <h3 id="time"> 00 : 00 : 00</h3>
+            <input class="session w-25" id="hou" type="number" placeholder="HH">
+            <input class="session w-25" id="min" type="number" placeholder="MM">
+            <input class="session w-25" id="sec" type="number" placeholder="SS">
+            <h3 id="time">00 : 00 : 00</h3>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+            <button class="btn btn-success" id="start"><i class="fa-solid fa-play"></i> Start</button>
+            <button class="btn btn-warning" id="reset"><i class="fa-solid fa-rotate"></i> Reset</button>
+            <button class="btn btn-danger" id="pause"><i class="fa-solid fa-pause"></i> Pause</button>
         </div>
     </section>
-    <div class="d-flex align-items-center justify-content-center gap-3 mt-3">
-        <button class="btn btn-success p-2 " id="start">Start</button>
-        <button class="btn btn-success p-2 " id="reset">Reset</button>
-        <button class="btn btn-success p-2 " id="pause">Pause</button>
+
+    <div class="modal fade" id="timeUpModal" tabindex="-1" aria-labelledby="timeUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-black" id="timeUpModalLabel">Time's Up!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-black">
+                    "Your time is precious. Spend it wisely, grow daily, and cherish every moment."
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+    <script>
+        let timer;
+        let time = document.getElementById("time")
+        let totalSecond = 0;
+        let runningState = false;
+
+        document.getElementById("start").addEventListener("click", function () {
+            if (runningState) return;
+            startTimer();
+        });
+
+        function startTimer() {
+            let h = parseInt(document.getElementById("hou").value) || 0;
+            let m = parseInt(document.getElementById("min").value) || 0;
+            let s = parseInt(document.getElementById("sec").value) || 0;
+            totalSecond = (h * 3600) + (m * 60) + s;
+            
+            if (totalSecond <= 0) {
+                Swal.fire({
+                    text: "Invalid Input",
+                    icon: "error"
+                });
+                return;
+            }
+
+            timer = setInterval(updateTime, 1000);
+            runningState = true;
+        }
+
+        function updateTime() {
+            if (totalSecond > 0) {
+                totalSecond--;
+                let hrs = Math.floor(totalSecond / 3600);
+                let min = Math.floor((totalSecond % 3600) / 60);
+                let sec = totalSecond % 60;
+                hrs = hrs.toString().padStart(2, '0');
+                min = min.toString().padStart(2, '0');
+                sec = sec.toString().padStart(2, '0');
+                time.innerText = `${hrs}:${min}:${sec}`;
+            } else {
+                clearInterval(timer);
+                showModal();
+                runningState = false;
+            }
+        }
+
+        document.getElementById("reset").addEventListener("click", function () {
+            clearInterval(timer);
+            runningState = false;
+            totalSecond = 0;
+            time.innerHTML = "00 : 00 : 00";
+        });
+
+        document.getElementById("pause").addEventListener("click", function () {
+            const pauseButton = document.getElementById("pause");
+            const icon = pauseButton.querySelector("i");
+
+            if (runningState) {
+                clearInterval(timer);
+                runningState = false;
+                pauseButton.innerHTML = '<i class="fa-solid fa-play"></i> Play';
+            } else {
+                timer = setInterval(updateTime, 1000);
+                runningState = true;
+                pauseButton.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
+            }
+        });
+
+        function showModal() {
+            const myModal = new bootstrap.Modal(document.getElementById('timeUpModal'));
+            myModal.show();
+            
+            setTimeout(() => {
+                confetti({
+                    particleCount: 150,
+                    spread: 150,
+                    origin: { y: 0.4 },
+                    colors: ["#00FFFC", "#FC00FF", "#fffc00"],
+                    shapes: ["circle", "square"],
+                });
+            }, 300);
+        }
+    </script>
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script>
-    let timer;
-    let time = document.getElementById("time")
-    let totalSecond = 0;
-    let runningState = false;
-
-    document.getElementById("start").addEventListener("click", function () {
-        if (runningState == true) {
-            return
-        }
-        startTimer();
-        setTimeout(() => {
-            clearall()
-        }, 1000)
-    })
-    function startTimer() {
-        let h = parseInt(document.getElementById("hou").value) || 0;
-        let m = parseInt(document.getElementById("min").value) || 0;
-        let s = parseInt(document.getElementById("sec").value) || 0;
-
-        totalSecond = (h * 3600) + (m * 60) + s;
-        if (totalSecond <= 0) {
-            Swal.fire({
-                text: "Invalid Input",
-                icon: "error"
-            });
-        } else {
-            timer = setInterval(() => {
-                runningState = true
-                if (totalSecond == -1) {
-                    clearInterval(timer)
-                }
-                else {
-                    displayTimer()
-
-                    totalSecond--;
-                }
-            }, 1000)
-        }
-    }
-    function displayTimer() {
-        let hours = Math.floor(totalSecond / 3600);
-        let minuts = Math.floor((totalSecond % 3600) / 60);
-        let seconds = totalSecond % 60
-        time.innerHTML = `${hours.toString().padStart(2, 0)} : ${minuts.toString().padStart(2, 0)} : ${seconds.toString().padStart(2, 0)}`
-    }
-    function clearall() {
-        document.getElementById("hou").value = ""
-        document.getElementById("min").value = ""
-        document.getElementById("sec").value = ""
-    }
-    document.getElementById("reset").addEventListener("click", function () {
-        clearInterval(timer);
-        runningState = false;
-        totalSecond = 0;
-        document.getElementById("time").innerHTML = "00 : 00 : 00";
-    });
-    document.getElementById("pause").addEventListener("click", function () {
-        clearInterval(timer);
-        runningState = false;
-    });
-
-
-
-
-</script>
 
 </html>
