@@ -21,8 +21,8 @@
             <h3 id="time">00 : 00 : 00</h3>
         </div>
         <div class="d-flex justify-content-center gap-3 mt-3">
-            <button class="btn btn-success" id="start"><i class="fa-solid fa-play"></i> Start</button>
-            <button class="btn btn-warning" id="reset"><i class="fa-solid fa-rotate"></i> Reset</button>
+            <button class="btn btn-success btn-hover1" id="start"><i class="fa-solid fa-play"></i> Start</button>
+            <button class="btn btn-warning btn-hover" id="reset"><i class="fa-solid fa-rotate"></i> Reset</button>
             <button class="btn btn-danger" id="pause"><i class="fa-solid fa-pause"></i> Pause</button>
         </div>
     </section>
@@ -64,7 +64,7 @@
             let m = parseInt(document.getElementById("min").value) || 0;
             let s = parseInt(document.getElementById("sec").value) || 0;
             totalSecond = (h * 3600) + (m * 60) + s;
-            
+
             if (totalSecond <= 0) {
                 Swal.fire({
                     text: "Invalid Input",
@@ -73,9 +73,17 @@
                 return;
             }
 
+            // Clear input values after 1 second
+            setTimeout(() => {
+                document.getElementById("hou").value = "";
+                document.getElementById("min").value = "";
+                document.getElementById("sec").value = "";
+            }, 1000);
+
             timer = setInterval(updateTime, 1000);
             runningState = true;
         }
+
 
         function updateTime() {
             if (totalSecond > 0) {
@@ -91,6 +99,7 @@
                 clearInterval(timer);
                 showModal();
                 runningState = false;
+                return
             }
         }
 
@@ -100,6 +109,7 @@
             totalSecond = 0;
             time.innerHTML = "00 : 00 : 00";
         });
+
 
         document.getElementById("pause").addEventListener("click", function () {
             const pauseButton = document.getElementById("pause");
@@ -119,7 +129,7 @@
         function showModal() {
             const myModal = new bootstrap.Modal(document.getElementById('timeUpModal'));
             myModal.show();
-            
+
             setTimeout(() => {
                 confetti({
                     particleCount: 150,

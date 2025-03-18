@@ -50,14 +50,17 @@ button {
   transition: transform 0.3s ease;
 }
 
-button:hover {
+/* button:hover {
   transform: scale(1.05);
-}
+} */
 
-button.btn-warning {
+.btn-hover {
   background: linear-gradient(45deg, #fdcb6e, #e17055);
 }
 
-button.btn-danger {
+.btn-hover1 {
   background: linear-gradient(45deg, #d63031, #e84393);
+}
+.btn-hover2{
+  
 }
