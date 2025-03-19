@@ -18,14 +18,15 @@
             <input class="session w-25" id="hou" type="number" placeholder="HH">
             <input class="session w-25" id="min" type="number" placeholder="MM">
             <input class="session w-25" id="sec" type="number" placeholder="SS">
-            <h3 id="time">00 : 00 : 00</h3>
+            <h3 id="time">00:00:00</h3>
         </div>
         <div class="d-flex justify-content-center gap-3 mt-3">
-            <button class="btn btn-success btn-hover1" id="start"><i class="fa-solid fa-play"></i> Start</button>
+            <button class="btn btn-success btn-hover1 text-black" id="start"><i class="fa-solid fa-play"></i> Start</button>
             <button class="btn btn-warning btn-hover" id="reset"><i class="fa-solid fa-rotate"></i> Reset</button>
-            <button class="btn btn-danger" id="pause"><i class="fa-solid fa-pause"></i> Pause</button>
+            <button class="btn btn-danger btn-hover2 text-black" id="pause"><i class="fa-solid fa-pause"></i> Pause</button>
         </div>
     </section>
+    <audio id="clapaudio" src="./clap.wav"></audio>
 
     <div class="modal fade" id="timeUpModal" tabindex="-1" aria-labelledby="timeUpModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -46,11 +47,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="./tsparticle.js"></script>
 
     <script>
         let timer;
-        let time = document.getElementById("time")
+        let time = document.getElementById("time");
         let totalSecond = 0;
         let runningState = false;
 
@@ -68,22 +69,19 @@
             if (totalSecond <= 0) {
                 Swal.fire({
                     text: "Invalid Input",
-                    icon: "error"
+                    icon: "error",
+                    backdrop: false
                 });
                 return;
             }
 
-            // Clear input values after 1 second
-            setTimeout(() => {
-                document.getElementById("hou").value = "";
-                document.getElementById("min").value = "";
-                document.getElementById("sec").value = "";
-            }, 1000);
+            document.getElementById("hou").value = "";
+            document.getElementById("min").value = "";
+            document.getElementById("sec").value = "";
 
             timer = setInterval(updateTime, 1000);
             runningState = true;
         }
-
 
         function updateTime() {
             if (totalSecond > 0) {
@@ -99,7 +97,6 @@
                 clearInterval(timer);
                 showModal();
                 runningState = false;
-                return
             }
         }
 
@@ -110,25 +107,22 @@
             time.innerHTML = "00 : 00 : 00";
         });
 
-
         document.getElementById("pause").addEventListener("click", function () {
-            const pauseButton = document.getElementById("pause");
-            const icon = pauseButton.querySelector("i");
-
             if (runningState) {
                 clearInterval(timer);
                 runningState = false;
-                pauseButton.innerHTML = '<i class="fa-solid fa-play"></i> Play';
+                this.innerHTML = '<i class="fa-solid fa-play"></i> Play';
             } else {
                 timer = setInterval(updateTime, 1000);
                 runningState = true;
-                pauseButton.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
+                this.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
             }
         });
 
         function showModal() {
             const myModal = new bootstrap.Modal(document.getElementById('timeUpModal'));
             myModal.show();
+            let audio = document.getElementById("clapaudio");
 
             setTimeout(() => {
                 confetti({
@@ -139,6 +133,8 @@
                     shapes: ["circle", "square"],
                 });
             }, 300);
+            audio.currentTime = 0;
+            audio.play();
         }
     </script>
 </body>
