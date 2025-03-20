@@ -166,7 +166,7 @@
             let name = document.getElementById("username").value;
             let grid = document.getElementById("grid").value;
             let phoneno = document.getElementById("phoneno").value;
-            // const idRegex = /^\d+$/;
+        
             const nameRegex = /^[a-zA-Z\s]+$/;
             const gridRegex = /^\d{4}$/;
             const mobileRegex = /^\d{10}$/;
@@ -178,10 +178,7 @@
                 });
                 return;
             }
-            // if (!idRegex.test(id)) {
-            //     Swal.fire({ text: "Invalid ID. Only numbers are allowed.", icon: "error" });
-            //     return;
-            // }
+           
             if (!nameRegex.test(name)) {
                 Swal.fire({ text: "Invalid Name. Only letters and spaces are allowed.", icon: "error" });
                 return;
