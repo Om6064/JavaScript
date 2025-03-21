@@ -2343,13 +2343,13 @@ progress {
     --bs-table-hover-color: #fff;
     color: var(--bs-table-color);
     border-color: var(--bs-table-border-color) */
-
+/* 
     --bs-table-color: #fff;
 --bs-table-bg: #212529;
 --bs-table-border-color: #4d5154;
---bs-table-striped-bg: #181826; /* New striped color */
+--bs-table-striped-bg: #181826; 
 --bs-table-striped-color: #fff;
---bs-table-striped-bg-alt: #212034; /* Second striped color */
+--bs-table-striped-bg-alt: #212034; 
 --bs-table-active-bg: #373b3e;
 --bs-table-active-color: #fff;
 --bs-table-hover-bg: #323539;
@@ -2357,14 +2357,14 @@ progress {
 color: var(--bs-table-color);
 border-color: var(--bs-table-border-color);
 
-/* Apply alternating colors for stripes */
+
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: var(--bs-table-striped-bg);
 }
 
 .table-striped tbody tr:nth-of-type(even) {
     background-color: var(--bs-table-striped-bg-alt);
-}
+} */
 
 }
 

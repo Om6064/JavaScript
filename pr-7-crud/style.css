@@ -104,3 +104,36 @@ body {
         padding: 0.4rem;
     }
 }
+:root {
+    --bs-table-striped-bg: #b2ebf2; /* Light Blue Stripe */
+    --bs-table-striped-bg-alt: #ccffcc; /* Light Green Stripe */
+    --bs-table-hover-bg: #a3d5ff; /* Blue Hover Effect */
+    --bs-table-color: #004d66; /* Table Text Color */
+    --bs-table-border-color: #99cc99; /* Soft Green Border */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--bs-table-striped-bg);
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: var(--bs-table-striped-bg-alt);
+}
+.table-hover tbody tr:hover {
+    background-color: var(--bs-table-hover-bg);
+}
+
+.table th {
+    background-color: #0077b3; /* Dark Blue Header */
+    color: white;
+}
+.table td {
+    color: var(--bs-table-color);
+}
+.btn-green{
+    background: rgb(195,211,213);
+    background: linear-gradient(90deg, rgba(195,211,213,1) 0%, rgba(176,197,199,1) 100%);
+}
+.btn-green:hover{
+    background: rgb(176,197,199);
+background: linear-gradient(90deg, rgba(176,197,199,1) 0%, rgba(195,211,213,1) 100%);
+}
