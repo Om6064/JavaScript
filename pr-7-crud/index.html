@@ -193,6 +193,15 @@
                 return;
             }
 
+            let existingStudentIndex = manager.students.findIndex(student => student.id === id);
+            if (existingStudentIndex !== -1) {
+                Swal.fire({
+                    text: "A student with this EnrollMent No already exists.",
+                    icon: "warning"
+                });
+                return;
+            }
+
 
             let student = new Student(id, name, grid, phoneno);
 
@@ -228,7 +237,7 @@
 
             editingIndex = index;
             document.getElementById("btn-create").textContent = "Update";
-            document.getElementById("btn-create").classList.remove("btn-success");
+            document.getElementById("btn-create").classList.remove("btn-green");
             document.getElementById("btn-create").classList.add("btn-warning");
         }
 
@@ -236,7 +245,7 @@
         function deleteStudent(index) {
             manager.delete(index);
 
-            
+
             if (editingIndex === index) {
                 resetForm();
                 editingIndex = null;
