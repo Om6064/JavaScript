@@ -1,15 +1,15 @@
 .d-flex input,.row input{
     margin: .9em 0em !important;
     box-shadow: none !important;
-    background-color: #212034 !important;
-    border: 2px solid #383850 !important;
-    color: white !important;
+    background-color: #fffdff !important;
+    border: 2px solid white !important;
+    color: black !important;
 }
 .d-flex input::placeholder,.row input::placeholder{
-    color: white;
+    color: #b7b7b7;
 }
 .d-flex input:focus,.row input:focus{
-    border: 2px solid white !important;
+    border: 2px solid black !important;
 }
 
 .d-flex button {
@@ -18,16 +18,17 @@
 }
 
 body {
-    background-color: #181826 !important;
+    background: rgb(231,237,237);
+    background: radial-gradient(circle, rgba(231,237,237,1) 0%, rgba(152,180,183,1) 100%); ;
 }
 
 .box {
-    background: #212034;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: #ededed;
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); */
     border-radius: 10px;
-    border: 1px solid #383752;
+    /* border: 1px solid #383752; */
 }
 .responsive{
     width: 100%;
