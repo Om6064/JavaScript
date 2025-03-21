@@ -194,7 +194,7 @@
             }
 
             let existingStudentIndex = manager.students.findIndex(student => student.id === id);
-            if (existingStudentIndex !== -1) {
+            if (existingStudentIndex !== -1 && editingIndex === null) {
                 Swal.fire({
                     text: "A student with this EnrollMent No already exists.",
                     icon: "warning"
@@ -202,21 +202,34 @@
                 return;
             }
 
-
             let student = new Student(id, name, grid, phoneno);
 
-            if (editingIndex === null) {
-                manager.create(student);
-            } else {
+            // Check if the form data is actually different from the existing data before updating
+            if (editingIndex !== null) {
+                let existingStudent = manager.students[editingIndex];
+                if (existingStudent.id === student.id &&
+                    existingStudent.name === student.name &&
+                    existingStudent.grid === student.grid &&
+                    existingStudent.mobileno === student.mobileno) {
+                    Swal.fire({
+                        text: "No changes detected. Update not performed.",
+                        icon: "info"
+                    });
+                    return;  // Don't update if no changes
+                }
+
                 manager.update(editingIndex, student);
                 editingIndex = null;
                 document.getElementById("btn-create").textContent = "Create";
                 document.getElementById("btn-create").classList.remove("btn-warning");
                 document.getElementById("btn-create").classList.add("btn-success");
+            } else {
+                manager.create(student);
             }
 
             resetForm();
         }
+
 
 
         function resetForm() {
