@@ -59,10 +59,13 @@ body {
     .box {
         padding: 1rem;
         max-width: 95%;
+        display: block !important;
     }
 
     .d-flex input, .row input {
         font-size: 13px;
+        
+
     }
 
     .d-flex button {
@@ -79,7 +82,7 @@ body {
     }
 }
 
-/* Extra Small Devices (320px) */
+
 @media (max-width: 320px) {
     .box {
         padding: 0.8rem;
@@ -105,11 +108,11 @@ body {
     }
 }
 :root {
-    --bs-table-striped-bg: #b2ebf2; /* Light Blue Stripe */
-    --bs-table-striped-bg-alt: #ccffcc; /* Light Green Stripe */
-    --bs-table-hover-bg: #a3d5ff; /* Blue Hover Effect */
-    --bs-table-color: #004d66; /* Table Text Color */
-    --bs-table-border-color: #99cc99; /* Soft Green Border */
+    --bs-table-striped-bg: #b2ebf2; 
+    --bs-table-striped-bg-alt: #ccffcc; 
+    --bs-table-hover-bg: #a3d5ff; 
+    --bs-table-color: #004d66; 
+    --bs-table-border-color: #99cc99; 
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
