@@ -204,7 +204,7 @@
 
             let student = new Student(id, name, grid, phoneno);
 
-            // Check if the form data is actually different from the existing data before updating
+          
             if (editingIndex !== null) {
                 let existingStudent = manager.students[editingIndex];
                 if (existingStudent.id === student.id &&
@@ -215,7 +215,7 @@
                         text: "No changes detected. Update not performed.",
                         icon: "info"
                     });
-                    return;  // Don't update if no changes
+                    return;  
                 }
 
                 manager.update(editingIndex, student);
