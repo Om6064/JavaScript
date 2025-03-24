@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hgdfiksdhjogho</title>
+</head>
+<body>
+
+        <h1 id="name"></h1>
+        <h1 id="grid"></h1>
+        <script>
+            let students = JSON.parse(localStorage.getItem("students"))
+
+            let student = students[0]
+
+            document.getElementById("name").innerHTML = `Name: ${student.name}`;
+            document.getElementById("grid").innerHTML = `Grid: ${student.grid}`;
+        
+            
+        </script>
+    </body>
+</html>
