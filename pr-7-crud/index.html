@@ -220,7 +220,7 @@
 
                 manager.update(editingIndex, student);
                 editingIndex = null;
-                document.getElementById("btn-create").textContent = "Create";
+                document.getElementById("btn-create").innerHTML = "Create";
                 document.getElementById("btn-create").classList.remove("btn-warning");
                 document.getElementById("btn-create").classList.add("btn-green");
             } else {
@@ -249,7 +249,7 @@
             document.getElementById("phoneno").value = student.mobileno;
 
             editingIndex = index;
-            document.getElementById("btn-create").textContent = "Update";
+            document.getElementById("btn-create").innerHTML = "Update";
             document.getElementById("btn-create").classList.remove("btn-green");
             document.getElementById("btn-create").classList.add("btn-warning");
         }
@@ -262,7 +262,7 @@
             if (editingIndex === index) {
                 resetForm();
                 editingIndex = null;
-                document.getElementById("btn-create").textContent = "Create";
+                document.getElementById("btn-create").innerHTML = "Create";
                 document.getElementById("btn-create").classList.remove("btn-warning");
                 document.getElementById("btn-create").classList.add("btn-success");
             }
