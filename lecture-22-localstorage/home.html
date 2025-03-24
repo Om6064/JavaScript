@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hgdfiksdhjogho</title>
 </head>
+
 <body>
+    <table cellpadding="10" cellspacing="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Grid</th>
+            </tr>
+        </thead>
+        <tbody class="dataTable">
+            <!-- <tr>
+                <td></td>
+                <td></td>
+               
+            </tr> -->
+        </tbody>
+    </table>
+    <h1 id="name"></h1>
+    <h1 id="grid"></h1>
+    <script>
+        let students = JSON.parse(localStorage.getItem("students"))
 
-        <h1 id="name"></h1>
-        <h1 id="grid"></h1>
-        <script>
-            let students = JSON.parse(localStorage.getItem("students"))
+        <!-- let student = students[0] -->
 
-            let student = students[0]
 
-            document.getElementById("name").innerHTML = `Name: ${student.name}`;
-            document.getElementById("grid").innerHTML = `Grid: ${student.grid}`;
-        
+        document.querySelector(".dataTable").innerHTML =""
+        students.forEach((students) => {
+            let row  = `<tr>
+                <td>${students.name}</td>
+                <td>${students.grid}</td>
+            </tr>`
+            document.querySelector(".dataTable").innerHTML += row
             
-        </script>
-    </body>
+        })
+        document.getElementById("name").innerHTML = `Name: ${student.name}`;
+        document.getElementById("grid").innerHTML = `Grid: ${student.grid}`;
+
+
+    </script>
+</body>
+
 </html>
