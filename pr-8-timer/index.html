@@ -59,7 +59,7 @@
             if (runningState) {
                 clearInterval(timer);
                 runningState = false;
-                this.innerHTML = '<i class="fa-solid fa-play"></i> Start';
+                document.getElementById("start").innerHTML = '<i class="fa-solid fa-play"></i> Start';
                 return;
             }
 
@@ -67,7 +67,7 @@
             if (totalSecond > 0) {
                 timer = setInterval(updateTime, 1000);
                 runningState = true;
-                this.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
+                document.getElementById("start").innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
             } else {
                 startTimer();
             }
