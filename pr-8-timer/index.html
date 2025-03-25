@@ -55,7 +55,7 @@
         let runningState = false;
 
         document.getElementById("start").addEventListener("click", function () {
-           
+
             if (runningState) {
                 clearInterval(timer);
                 runningState = false;
@@ -63,7 +63,7 @@
                 return;
             }
 
-        
+
             if (totalSecond > 0) {
                 timer = setInterval(updateTime, 1000);
                 runningState = true;
@@ -126,10 +126,30 @@
             document.getElementById("start").innerHTML = '<i class="fa-solid fa-play"></i> Start';
         });
 
+        const Quotes = [
+            { Quotes: "Time is what we want most, but what we use worst.", author: "William Penn" },
+            { Quotes: "The two most powerful warriors are patience and time.", author: "Leo Tolstoy" },
+            { Quotes: "Time flies over us, but leaves its shadow behind.", author: "Nathaniel Hawthorne" },
+            { Quotes: "Lost time is never found again.", author: "Benjamin Franklin" },
+            { Quotes: "The present time has one advantage over every other: it is our own.", author: "Charles Caleb Colton" },
+            { Quotes: "You may delay, but time will not.", author: "Benjamin Franklin" },
+            { Quotes: "Time waits for no one.", author: "Folklore" },
+            { Quotes: "Time is a great teacher, but unfortunately it kills all its pupils.", author: "Louis Hector Berlioz" },
+            { Quotes: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+            { Quotes: "Time is a great healer, but a poor beautician.", author: "Lucille S. Harper" }
+        ];
+
+
         function showModal() {
             const myModal = new bootstrap.Modal(document.getElementById('timeUpModal'));
             myModal.show();
             let audio = document.getElementById("clapaudio");
+
+
+            const randomQuote = Quotes[Math.floor(Math.random() * Quotes.length)];
+            document.querySelector('.modal-body').innerHTML = `${randomQuote.Quotes}<br> - <strong>${randomQuote.author}</strong>`;
+
+
 
             const duration = 1 * 1000,
                 animationEnd = Date.now() + duration,
