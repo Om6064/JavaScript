@@ -34,13 +34,41 @@
             <div class="col-6">
                 <label for="gender">gender</label>
                 <div>
-                    <label for=""></label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
                 </div>
+            </div>
 
-
+            <div class="text-center my-3">
+                <button type="button" id="add" class="btn btn-success w-25 ">Submit</button>
+                <button type="button" class="btn btn-danger w-25 " onclick="window.location = './home.html'">Show Data</button>
             </div>
         </form>
     </div>
+
+    <script>
+        document.getElementById("add").addEventListener("click", function () {
+            let name = document.getElementById("name").value
+            let email = document.getElementById("email").value
+            let course = document.getElementById("course").value
+            let gender = document.querySelector(`input[type="radio"]:checked`).value
+
+            let obj = {
+                name,
+                email,
+                course,
+                gender
+            }
+            let arr = JSON.parse(localStorage.getItem("students")) || [];
+    
+            arr.push(obj)
+            localStorage.setItem("students", JSON.stringify(arr))
+            window.location = "./home.html"
+        })
+
+    </script>
 </body>
 
 </html>

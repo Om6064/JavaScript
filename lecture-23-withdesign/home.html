@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1 class="text-center" id="empty"></h1>
+
+    <div class="container">
+        <table class="table table-responsive table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>No .</th>
+                    <th>Name :</th>
+                    <th>Email :</th>
+                    <th>Course :</th>
+                    <th>Gender :</th>
+                    <th>Action :</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+
+            </tbody>
+
+        </table>
+        <button class="btn btn-danger" onclick='window.history.back()'>Back</button>
+    </div>
+    <script>
+        let arr = JSON.parse(localStorage.getItem("students")) || [];
+
+        if (arr.length == 0) {
+            document.getElementById("empty").innerHTML = "No Student Found"
+        } else {
+            arr.forEach((data, idx) => {
+                document.getElementById("data").innerHTML += `<tr>
+                    <td>${idx + 1}</td>
+                    <td>${data.name}</td>
+                    <td>${data.email}</td>
+                    <td>    ${data.course == 1 ? "Full Stack Development" :
+                        data.course == 2 ? "UI/UX and Graphic Design" :
+                            data.course == 3 ? "AI/ML and Data Science" :
+                                "Unknown Course"}</td>
+                    <td>${data.gender}</td>
+                    <td></td>
+                </tr>`
+            })
+        }
+    </script>
+</body>
+
+</html>
