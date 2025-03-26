@@ -68,6 +68,7 @@
             arr.splice(idx,1)
             localStorage.setItem("students",JSON.stringify(arr))
             display();
+            document.querySelector("table").innerHTML = ""
         }
     </script>
 </body>
