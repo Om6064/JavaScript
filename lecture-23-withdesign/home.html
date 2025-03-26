@@ -28,8 +28,8 @@
 
             </tbody>
 
+            <button id="remove" class="btn btn-danger" onclick='window.history.back()'>Back</button>
         </table>
-        <button class="btn btn-danger" onclick='window.history.back()'>Back</button>
     </div>
     <script>
         let arr = JSON.parse(localStorage.getItem("students")) || [];
@@ -58,6 +58,8 @@
 
         if (arr.length == 0) {
             document.getElementById("empty").innerHTML = "No Student Found"
+            document.querySelector("table").innerHTML = ""
+
         } else {
             display();
         }
