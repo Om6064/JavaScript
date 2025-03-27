@@ -49,6 +49,19 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            let editindex = JSON.parse(localStorage.getItem("editindex"))
+            let editinfo = JSON.parse(localStorage.getItem("editinfo"))
+            if(editindex !== null){
+             document.getElementById("name").value = editinfo.name
+            document.getElementById("email").value = editinfo.email
+            document.getElementById("course").value = editinfo.course
+            document.querySelector(`input[value=${editinfo.gender}`).checked = true;
+            document.getElementById("add").innerHTML = "Update"
+            }
+
+
+        })
         document.getElementById("add").addEventListener("click", function () {
             let name = document.getElementById("name").value
             let email = document.getElementById("email").value

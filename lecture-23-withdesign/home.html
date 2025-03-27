@@ -28,10 +28,15 @@
 
             </tbody>
 
-            <button id="remove" class="btn btn-danger" onclick='window.history.back()'>Back</button>
+            <button id="remove" class="btn btn-danger" onclick='window.location="./index.html"'>Back</button>
         </table>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            localStorage.removeItem("editindex")
+            localStorage.removeItem("editinfo")
+            
+        })
         let arr = JSON.parse(localStorage.getItem("students")) || [];
 
         function display(){
@@ -48,7 +53,7 @@
                     <td>${data.gender}</td>
                     <td>
                         <div class="d-flex gap-3">
-                            <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button class="btn btn-warning" onclick="editStudents(${idx})"><i class="fa-solid fa-pen-to-square"></i></button>
                             <button class="btn btn-danger" onclick="deleteStudents(${idx})"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </td>
@@ -64,11 +69,21 @@
             display();
         }
 
+        function editStudents(idx){
+            let student = arr[idx]
+            localStorage.setItem("editindex",idx)
+            localStorage.setItem("editinfo",JSON.stringify(student))
+
+            window.location = "./index.html"
+
+        }
+
         function deleteStudents(idx){
             arr.splice(idx,1)
             localStorage.setItem("students",JSON.stringify(arr))
             display();
-            document.querySelector("table").innerHTML = ""
+            localStorage.removeItem("editindex")
+            localStorage.removeItem("editinfo")
         }
     </script>
 </body>
