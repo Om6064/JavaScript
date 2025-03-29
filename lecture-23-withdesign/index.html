@@ -43,21 +43,23 @@
 
             <div class="text-center my-3">
                 <button type="button" id="add" class="btn btn-success w-25 ">Submit</button>
-                <button type="button" class="btn btn-danger w-25 " onclick="window.location = './home.html'">Show Data</button>
+                <button type="button" class="btn btn-danger w-25 " onclick="window.location = './home.html'">Show
+                    Data</button>
             </div>
         </form>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", ()=>{
-            let editindex = JSON.parse(localStorage.getItem("editindex"))
-            let editinfo = JSON.parse(localStorage.getItem("editinfo"))
-            if(editindex !== null){
-             document.getElementById("name").value = editinfo.name
-            document.getElementById("email").value = editinfo.email
-            document.getElementById("course").value = editinfo.course
-            document.querySelector(`input[value=${editinfo.gender}`).checked = true;
-            document.getElementById("add").innerHTML = "Update"
+        let arr = JSON.parse(localStorage.getItem("students")) || [];
+        let editindex = JSON.parse(localStorage.getItem("editindex"))
+        let editinfo = JSON.parse(localStorage.getItem("editinfo"))
+        document.addEventListener("DOMContentLoaded", () => {
+            if (editindex !== null) {
+                document.getElementById("name").value = editinfo.name
+                document.getElementById("email").value = editinfo.email
+                document.getElementById("course").value = editinfo.course
+                document.querySelector(`input[value=${editinfo.gender}`).checked = true;
+                document.getElementById("add").innerHTML = "Update"
             }
 
 
@@ -67,17 +69,20 @@
             let email = document.getElementById("email").value
             let course = document.getElementById("course").value
             let gender = document.querySelector(`input[type="radio"]:checked`).value
-
+            
             let obj = {
                 name,
                 email,
                 course,
                 gender
             }
-            let arr = JSON.parse(localStorage.getItem("students")) || [];
-    
-            arr.push(obj)
-            localStorage.setItem("students", JSON.stringify(arr))
+            if (editindex != null) {
+                arr[editindex] = obj
+                localStorage.setItem("students",JSON.stringify(arr))
+            } else {
+                arr.push(obj)
+                localStorage.setItem("students", JSON.stringify(arr))
+            }
             window.location = "./home.html"
         })
 
