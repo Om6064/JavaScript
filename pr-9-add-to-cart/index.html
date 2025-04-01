@@ -37,7 +37,7 @@
             </div>
         </div>
     </header>
-    <header class="my-3">
+    <header class="my-3 pt-3">
         <div class="container">
             <div class="d-flex justify-content-between ps-0">
                 <div class="d-flex gap-5">
@@ -64,15 +64,18 @@
                     <div class="bg-color-icon d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <div class="bg-color-icon d-flex align-items-center justify-content-center">
+                    <button type="button" class="position-relative bg-color-icon d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="counter">
+                            0
+                        </span>
+                    </button>
                 </div>
 
             </div>
         </div>
     </header>
-    <header>
+    <header class="position-sticky z-3">
         <div class="container">
             <div class="d-flex bg-black justify-content-between">
                 <div class="p-3 ">
@@ -94,33 +97,84 @@
         </div>
     </header>
 
-    <section class="bg-hero-sec banner-padiing">
+    <section class="bg-hero-sec banner-padiing minus-100">
         <div class="container">
             <div class="row">
-                <div class="col-4 border d-flex flex-column justify-content-center">
-                    <div class="bg-white w-300 mb-4 rounded-pill">
-                        <p class="m-0 text-center">Spring summer 22 women’s collection</p>
+                <div class="col-4 d-flex flex-column justify-content-center">
+                    <div class="bg-white w-300 mb-4 rounded-pill ps-2">
+                        <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/banner/wvbo-icon.png" alt=""
+                            class="img-fluid">
+                        <span class="m-0 text-center">Spring summer 22 women’s collection</span>
                     </div>
                     <h1 class="fw-bold font-50">
                         Hot Collection
                         For Women
                     </h1>
-                    <p class="font-14 text-secondary m-b-50">Easy & safe payment with PayPal. sequins & embroidered for all</p>
+                    <p class="font-14 text-secondary m-b-50">Easy & safe payment with PayPal. sequins & embroidered for
+                        all</p>
                     <a class="text-uppercase text-black fw-bold">View Collections</a>
 
                 </div>
-                <div class="col-4 border">
-                    <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/1-1.webp" alt="" width="100%">
+                <div class="col-4">
+                    <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/1-1.webp" alt=""
+                        width="100%">
                 </div>
-                <div class="col-4 border">
+                <div class="col-4">
+                    <div>
+                        <div class="bg-white">
+                            <div class="h-50c overflow-hidden">
+                                <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img8.webp"
+                                    alt="" class="w-100">
+                            </div>
+                            <div class="p-4">
+                                <div class="d-flex gap-2 mb-2">
+                                    <i class="fa-solid fa-star text-danger"></i>
+                                    <i class="fa-solid fa-star text-danger"></i>
+                                    <i class="fa-solid fa-star text-danger"></i>
+                                    <i class="fa-solid fa-star text-danger"></i>
+                                    <i class="fa-solid fa-star text-danger"></i>
+                                </div>
+                                <p class="text-body-secondary mb-2">Maidenform Bra</p>
+                                <div class=" justify-content-between d-flex align-items-center justify-content-center">
+                                    <p class="fw-bold mb-0 ms-0 me-0">$31.00</p>
+                                    <button class="bg-color-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        
+    <section class="p-t-100">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center">
+                <div class="bg-white shadow mb-4 rounded-pill p-1 ps-3 pe-3">
+                    <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/banner/wvbo-icon.png" alt=""
+                        class="img-fluid">
+                    <span class="m-0 text-center">Featured</span>
+                    <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/banner/wvbo-icon.png" alt=""
+                        class="img-fluid">
+                </div>
+                <h2 class="font-40 fw-bold mb-5">FEATURED PRODUCT</h2>
+                <div class="bg-danger p-3 d-flex align-items-center gap-2 text-white ps-5 pe-5">
+                    <p class="m-0 fw-bold">CATEGORY</p>
+                    <span><i class="fa-solid fa-angle-down"></i></span>
+                </div>
+
+                <div class="row pt-5" id="rowContent">
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <script src="./assets/js/script.js"></script>
     </section>
 </body>
 
