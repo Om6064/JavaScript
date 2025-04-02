@@ -53,35 +53,31 @@ let products = [
 
 let cartArr = JSON.parse(localStorage.getItem("cart")) || [];
 let counter = document.getElementById("counter")
-counter.innerHTML = products.length
+counter.innerHTML = cartArr.length
 
 function addToCart(productId) {
-    console.log(productId);
+    // console.log(productId);
 
-    let product = products.find((obj) => {
-        return productId == obj.id
-    })
-    if (!product) {
-        return;
-    }
-    let productIdx = products.findIndex((obj) => {
-        return obj.id == productId
-    })
-    console.log(productIdx);
+    
+    let product = cartArr.find((obj) => obj.id === productId);
 
-
-
-    if (productIdx != -1) {
-        products[productIdx].quantity++
+   
+    if (product) {
+        product.quantity++;  
     } else {
-        product.quantity = 1
-        cartArr.push(product)
+        
+        let productToAdd = products.find((obj) => obj.id === productId);
+        
+        if (productToAdd) {
+            productToAdd.quantity = 1;
+            cartArr.push(productToAdd);
+        }
     }
 
-    localStorage.setItem("cart", JSON.stringify(cartArr))
-    counter.innerHTML = cartArr.length
-
+    localStorage.setItem("cart", JSON.stringify(cartArr));
+    counter.innerHTML = cartArr.length;
 }
+
 
 
 
