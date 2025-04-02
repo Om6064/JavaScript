@@ -58,10 +58,8 @@ counter.innerHTML = cartArr.length
 function addToCart(productId) {
     // console.log(productId);
 
-    
     let product = cartArr.find((obj) => obj.id === productId);
 
-   
     if (product) {
         product.quantity++;  
     } else {
