@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <header class="bg-color-header-1">
+    <header class="bg-color-header-1 d-none d-sm-flex">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="d-lg-flex d-none">
 
-                    <ul class="d-flex gap-3  my-1 ps-0">
+                    <ul class="d-flex gap-3 my-1 ps-0">
                         <li class="text-white">About Us</li>
                         <li class="text-white">My Account</li>
                         <li class="text-white">Whishlist</li>
@@ -46,7 +46,7 @@
                             <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/logo1.svg" alt="">
                         </div>
                     </div>
-                    <div class="d-flex bg-color-text-box align-items-center d-none d-xl-flex">
+                    <div class="d-flex bg-color-text-box align-items-center d-none d-xxl-flex">
                         <div class="">
                             <input type="text" class="border-0 bg-color-text-box ps-3" placeholder="Search Keyword...">
                         </div>
@@ -64,11 +64,11 @@
                     <div class="bg-color-icon d-flex align-items-center justify-content-center d-lg-none">
                         <i class="fa-solid fa-bars"></i>
                     </div>
-                    <div class="bg-color-icon d-flex align-items-center justify-content-center">
+                    <div class="bg-color-icon d-flex align-items-center justify-content-center d-none d-sm-flex">
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <button type="button"
-                        class="position-relative bg-color-icon d-flex align-items-center justify-content-center" onclick='window.location = "./cart.html"'>
+                        class="position-relative bg-color-icon d-flex align-items-center justify-content-center d-none d-sm-flex" onclick='window.location = "./cart.html"'>
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                             id="counter">
@@ -165,7 +165,7 @@
                     <img src="https://weiboo.pixcelsthemes.com/weiboo/assets/images/banner/wvbo-icon.png" alt=""
                         class="img-fluid">
                 </div>
-                <h2 class="font-40 fw-bold mb-5">FEATURED PRODUCT</h2>
+                <h2 class="font-40 fw-bold mb-5 text-center">FEATURED PRODUCT</h2>
                 <div class="bg-danger p-3 d-flex align-items-center gap-2 text-white ps-5 pe-5">
                     <p class="m-0 fw-bold">CATEGORY</p>
                     <span><i class="fa-solid fa-angle-down"></i></span>

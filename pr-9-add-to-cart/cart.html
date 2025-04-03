@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header class="bg-color-header-1">
+    <header class="bg-color-header-1 d-none d-sm-flex">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="d-lg-flex d-none">
@@ -64,11 +64,11 @@
                     <div class="bg-color-icon d-flex align-items-center justify-content-center d-lg-none">
                         <i class="fa-solid fa-bars"></i>
                     </div>
-                    <div class="bg-color-icon d-flex align-items-center justify-content-center">
+                    <div class="bg-color-icon d-flex align-items-center justify-content-center d-none d-sm-flex">
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <button type="button"
-                        class="position-relative bg-color-icon d-flex align-items-center justify-content-center"
+                        class="position-relative bg-color-icon d-flex align-items-center justify-content-center d-none d-sm-flex"
                         onclick='window.location = "./cart.html"'>
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -87,7 +87,7 @@
                 <div class="">
                     <h1 class="fw-bold font-50">Cart</h1>
                 </div>
-                <div class="">
+                <div class="d-none d-sm-block">
                     <a href="" class="text-secondary text-decoration-none fw-bold">Home </a><span class="text-danger">
                         ></span> <a href="" class="text-danger text-decoration-none fw-bold">Cart</a>
                 </div>
@@ -99,31 +99,91 @@
             <h4 class="fw-bold fs-2 mb-5">Product List</h4>
 
             <div class="row">
-                <div class="col-8"></div>
-                <div class="col-4 border rounded">
-                    <div class="p-40">
-                        <div class="d-flex justify-content-between border-bottom mb-4">
-                            <p class="text-secondary fw-bold m-0">Subtotal</p>
-                            <p class="fw-bold m-0">$364.00</p>
-                        </div>
-                        <p class="fw-bold mb-2">Shipping</p>
-                        <div class="mb-2">
-                            <input type="checkbox" class="assent-color">
-                            <label for="" class="text-secondary font-14">Flat rate</label>
-                        </div>
-                        <div class="mb-3">
-                            <input type="checkbox" class="assent-color">
-                            <label for="" class="text-secondary font-14">Free shipping</label>
-                        </div>
-                        <div class="d-flex fw-bold justify-content-between border-bottom">
-                            <p>Shipping to <span class="text-danger"> NY. </span></p>
-                            <p><i class="fa-solid fa-location-dot text-danger"></i> Change address</p>
+                <div class="row">
+                    <!-- Cart Items Section -->
+                    <div class="col-12 col-xxl-8" id="tablecontent">
+                        <!-- <div class="d-flex flex-wrap justify-content-between pb-4 border-bottom">
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex">
+                                    <div class="col-6">
+                                        <img src="https://reactheme.com/products/html/weiboo/assets/images/products/inner/cart/1.jpg"
+                                            alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-6 d-flex flex-column justify-content-center">
+                                        <p class="m-0 text-body-secondary font-14">Nighty</p>
+                                        <p class="text-black">Shimmer Sheer Tights</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 d-flex flex-column justify-content-center mt-3 mt-md-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="col-3 mt-2 text-center">
+                                        <p class="fw-bold">$69.00</p>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="d-flex border justify-content-between px-3 py-2 rounded">
+                                            <button class="bg-transparent text-secondary">
+                                                <i class="fa-solid fa-minus"></i>
+                                            </button>
+                                            <div class="fw-bold">3</div>
+                                            <button class="bg-transparent text-secondary">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-center">
+                                        <button class="text-secondary bg-transparent">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                <div class="col-12 col-xxl-4 mb-4 ps-5">
+                    <div class="border rounded">
+                        <div class="p-40">
+                            <div class="d-flex justify-content-between border-bottom mb-4">
+                                <p class="text-secondary fw-bold m-0">Subtotal</p>
+                                <p class="fw-bold m-0">$364.00</p>
+                            </div>
+                            <p class="fw-bold mb-2">Shipping</p>
+                            <div class="mb-2">
+                                <input type="checkbox" class="assent-color">
+                                <label for="" class="text-secondary font-14">Flat rate</label>
+                            </div>
+                            <div class="mb-3">
+                                <input type="checkbox" class="assent-color">
+                                <label for="" class="text-secondary font-14">Free shipping</label>
+                            </div>
+                            <div class="d-flex fw-bold justify-content-between border-bottom mb-4">
+                                <p>Shipping to <span class="text-danger"> NY. </span></p>
+                                <p><i class="fa-solid fa-location-dot text-danger"></i> Change address</p>
+                            </div>
+
+                            <div class="mt-1">
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-body-secondary fw-bold">
+                                        Total
+                                    </div>
+                                    <div class="fw-bold" id="total">
+                                        $364.00
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="w-100 text-center my-3  py-3 rounded text-white fw-bold hover-checkout">
+                        Procced To Check
+                    </div>
+                    <button class="bg-white fw-bold hover-shoping">
+                        <i class="fa-solid fa-arrow-left hover-left"></i>
+                        Continue Shopping
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <script src="./assets/js/cart.js"></script>
 </body>
 
 </html>

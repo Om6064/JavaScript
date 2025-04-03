@@ -3,49 +3,57 @@ let products = [
         id: 1,
         img: "https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img8.webp",
         productName: "Girl's Sport Bra",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
     {
         id: 2,
         img: "https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img6.webp",
         productName: "Champion Bra",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
     {
         id: 3,
         img: "https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img11_1.webp",
         productName: "Maidenform Bra",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
     {
         id: 4,
         img: "	https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img7.webp",
         productName: "Hanes Women's Bra",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
     {
         id: 5,
         img: "	https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img8_2.jpg",
         productName: "Girl's Sport Bra",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
     {
         id: 6,
         img: "	https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img12.webp",
         productName: "Maidenform Bra",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
     {
         id: 7,
         img: "https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/woman-shirt-338x450.png",
         productName: "Maidenform Bra",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
     {
         id: 8,
         img: "	https://weiboo.pixcelsthemes.com/weiboo/assets/images/hand-picked/slider-img13-1.webp",
         productName: "Hanes Women's Pant",
-        price: 31.00
+        price: 31.00,
+        discribtion: "Under Ware"
     },
 
 ]
@@ -56,7 +64,6 @@ let counter = document.getElementById("counter")
 counter.innerHTML = cartArr.length
 
 function addToCart(productId) {
-    // console.log(productId);
 
     let product = cartArr.find((obj) => obj.id === productId);
 
@@ -75,11 +82,6 @@ function addToCart(productId) {
     localStorage.setItem("cart", JSON.stringify(cartArr));
     counter.innerHTML = cartArr.length;
 }
-
-
-
-
-
 
 products.forEach((product, idx) => {
     document.getElementById("rowContent").innerHTML += `
