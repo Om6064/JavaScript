@@ -77,7 +77,7 @@ button{
 .hover-checkout:hover{
     background-color: white;
     color: #ee403d !important;
-    border: 1px solid #ee403d;
+    border: 1px solid #ee403d !important;
 }
 .hover-shoping{
     transition: .3s all linear;
@@ -85,6 +85,23 @@ button{
 }
 .hover-shoping:hover{
     color: #bbb5b5;
+}
+.hover-red{
+    transition: .3s all linear;
+    cursor: pointer;
+}
+.hover-red:hover{
+    color: #ee403d;
+}
+.img-h{
+    height: 136px;
+    width: 120px;
+}
+.bg-img{
+    background-image: url('../images/images\ \(1\).png');
+    background-repeat: no-repeat;
+    background-position: bottom bottom;
+    background-size: cover;
 }
 @media (max-width: 992px) {
     .center-responsive{
