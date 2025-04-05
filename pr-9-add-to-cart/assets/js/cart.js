@@ -7,13 +7,6 @@ let totalCard = document.getElementById("totalCard")
 let hiddenContent = document.getElementById("hiddenContent")
 let counter = document.getElementById("counter")
 
-
-
-
-
-
-
-
 function deleteItem(idx) {
     localArr.splice(idx, 1)
     saveCartArray()
@@ -26,7 +19,7 @@ function updateQuntity(idx, value) {
 
     if (newQuntity <= 0) {
         deleteItem(idx)
-        // totalCard.classList.add("d-none")
+        
     } else {
         localArr[idx].quantity = newQuntity;
         saveCartArray()
@@ -38,9 +31,9 @@ function displayItem() {
     totalAmount = 0;
     counter.innerHTML = localArr.length;
 
-    // If cart is empty
+   
     if (localArr.length === 0) {
-        // Hide the totalCard immediately
+      
         totalCard.style.display = "none";
 
         checkoutBox.innerHTML = `
@@ -60,7 +53,7 @@ function displayItem() {
         return;
     }
 
-    // Show totalCard if there are items
+
     totalCard.style.display = "block";
 
     let cartHTML = '';

@@ -73,11 +73,11 @@ button{
     background-color: #ee403d;
     transition: .3s all linear;
     cursor: pointer;
+    border: 1px solid #ee403d !important;
 }
 .hover-checkout:hover{
     background-color: white;
     color: #ee403d !important;
-    border: 1px solid #ee403d !important;
 }
 .hover-shoping{
     transition: .3s all linear;
