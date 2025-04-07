@@ -19,7 +19,7 @@ function updateQuntity(idx, value) {
 
     if (newQuntity <= 0) {
         deleteItem(idx)
-        
+
     } else {
         localArr[idx].quantity = newQuntity;
         saveCartArray()
@@ -31,24 +31,24 @@ function displayItem() {
     totalAmount = 0;
     counter.innerHTML = localArr.length;
 
-   
+
     if (localArr.length === 0) {
-      
+
         totalCard.style.display = "none";
 
-        checkoutBox.innerHTML = `
-            <div class="d-flex gap-5">
-                <div class="col-8">
-                    <img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" width="100%">
+        document.getElementById("forempty").innerHTML = `
+            <div class="d-flex justify-content-between">
+                <div class="mt-3 col-10">
+                    <marquee scrollamount="15" direction="right"><img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" width="500px" height="500px"></marquee>
                 </div>
-                <div class="col-4">
-                    <h1 class='text-center fw-bold'>Your cart is empty</h1>
-                </div>
+              
+                <div class="">
+                    <button  class="w-100 text-center my-3 py-3 rounded text-white fw-bold hover-checkout" onclick="window.location = './index.html'">
+                    <i class="fa-solid fa-arrow-left hover-left"></i>
+                    Continue Shopping
+                </button> 
+                </div>    
             </div>  
-            <button class="bg-white fw-bold hover-shoping" onclick="window.location = './index.html'">
-                <i class="fa-solid fa-arrow-left hover-left"></i>
-                Continue Shopping
-            </button>     
         `;
         return;
     }

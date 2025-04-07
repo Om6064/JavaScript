@@ -78,6 +78,7 @@ function addToCart(productId) {
             text: "It Is Alrady at cart",
             footer: ''
           });
+          return
     } else {
         product.quantity = 1;
         cartArr.push(product);
@@ -114,7 +115,7 @@ products.forEach((product, idx) => {
                                     <p class="text-body-secondary mb-2">${product.productName}</p>
                                     <div class=" justify-content-between d-flex align-items-center justify-content-center">
                                         <p class="fw-bold mb-0 ms-0 me-0">$${product.price}</p>
-                                        <button class="bg-color-icon" onclick = "addToCart(${product.id})">
+                                        <button class="bg-color-icon hover-icon" onclick = "addToCart(${product.id})">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </button>
                                     </div>

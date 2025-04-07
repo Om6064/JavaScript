@@ -97,11 +97,26 @@ button{
     height: 136px;
     width: 120px;
 }
+.pointer{
+    cursor: pointer !important;
+    transition: .3s all linear;
+}
+.pointer:hover{
+    color: #ee403d !important;
+}
 .bg-img{
     background-image: url('../images/images\ \(1\).png');
     background-repeat: no-repeat;
     background-position: bottom bottom;
     background-size: cover;
+}
+.hover-icon{
+    cursor: pointer;
+    transition: .3s all linear;
+}
+.hover-icon:hover{
+    background-color: #ee403d !important;
+    color: #F5F6F2;
 }
 @media (max-width: 992px) {
     .center-responsive{
@@ -110,5 +125,11 @@ button{
     }
     .minus-100{
         margin-top: 0 !important;
+    }
+    .postistion-responsive{
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding-bottom: 5px;
     }
 }
