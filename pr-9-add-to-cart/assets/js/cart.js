@@ -1,5 +1,3 @@
-
-
 let localArr = JSON.parse(localStorage.getItem("cart")) || [];
 let checkoutBox = document.getElementById("tablecontent");
 let totalAmount = 0;
@@ -12,6 +10,10 @@ function deleteItem(idx) {
     saveCartArray()
     displayItem()
 
+}
+function clearAll(){
+    localStorage.removeItem("cart")
+    location.reload();
 }
 
 function updateQuntity(idx, value) {
@@ -36,13 +38,13 @@ function displayItem() {
 
         totalCard.style.display = "none";
 
-        document.getElementById("forempty").innerHTML = `
-            <div class="d-flex justify-content-between">
+        checkoutBox.innerHTML = `
+            <div class="d-flex justify-content-between position-relative">
                 <div class="mt-3 col-10">
-                    <marquee scrollamount="15" direction="right"><img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" width="500px" height="500px"></marquee>
+                   <img src="./275-2756355_shopping-cart-is-empty-empty-shopping-cart-icon-removebg-preview.png" alt="empty-cart image" class="img-fluid">
                 </div>
               
-                <div class="">
+                <div class="col-2">
                     <button  class="w-100 text-center my-3 py-3 rounded text-white fw-bold hover-checkout" onclick="window.location = './index.html'">
                     <i class="fa-solid fa-arrow-left hover-left"></i>
                     Continue Shopping
@@ -132,10 +134,16 @@ function displayItem() {
             <button class="w-100 text-center my-3 py-3 rounded text-white fw-bold hover-checkout" onclick="window.location = './thankyou.html'">
                 Procced To Check
             </button>
-            <button class="bg-white fw-bold hover-shoping" onclick="window.location = './index.html'">
+            <div class="d-flex justify-content-between">
+                <button class="bg-white fw-bold hover-shoping" onclick="window.location = './index.html'">
                 <i class="fa-solid fa-arrow-left hover-left"></i>
                 Continue Shopping
             </button>
+            <button class="bg-white fw-bold hover-shoping" onclick="clearAll()">
+                <i class="fa-solid fa-trash"></i>
+                Clear All
+            </button>
+            </div>
         </div>
     `;
 }

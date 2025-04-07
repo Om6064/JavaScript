@@ -83,9 +83,10 @@ function addToCart(productId) {
         product.quantity = 1;
         cartArr.push(product);
         Swal.fire({
-            position: "top-end",
+            position: "bottom-end",
             icon: "success",
             title: "Item Added In Cart",
+            toast : true,
             showConfirmButton: false,
             timer: 1500
           });
@@ -97,12 +98,12 @@ function addToCart(productId) {
 
 products.forEach((product, idx) => {
     document.getElementById("rowContent").innerHTML += `
-           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+           <div class="col-12 col-sm-6 col-md-4 col-lg-3 hover-card">
                         <div>
                             <div class="bg-white">
                                 <div class="h-50c overflow-hidden">
                                     <img src="${product.img}"
-                                        alt="${product.productName}" class="w-100">
+                                        alt="${product.productName}" class="w-100 big-img">
                                 </div>
                                 <div class="p-4">
                                     <div class="d-flex gap-2 mb-2">
