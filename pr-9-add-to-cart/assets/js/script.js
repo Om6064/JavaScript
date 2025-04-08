@@ -55,30 +55,34 @@ let products = [
         price: 35.00,
         discribtion: "Under Wear"
     },
-
-]
-
+];
 
 let cartArr = JSON.parse(localStorage.getItem("cart")) || [];
-let counter = document.getElementById("counter")
-counter.innerHTML = cartArr.length
+
+
+let counterMain = document.getElementById("counter");
+let counterOffcanvas = document.getElementById("counter-offcanvas");
+
+
+function updateCartCount(count) {
+    if (counterMain) counterMain.innerText = count;
+    if (counterOffcanvas) counterOffcanvas.innerText = count;
+}
+
+
+updateCartCount(cartArr.length);
 
 function addToCart(productId) {
-
     let product = products.find((obj) => obj.id === productId);
-
     let productIdx = cartArr.findIndex((obj) => obj.id === productId);
 
-    if (productIdx != -1) {
-        // product.quantity++;
-        cartArr[productIdx] = product;
+    if (productIdx !== -1) {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "It Is Alrady at cart",
-            footer: ''
-          });
-          return
+            text: "It is already in the cart",
+        });
+        return;
     } else {
         product.quantity = 1;
         cartArr.push(product);
@@ -86,43 +90,40 @@ function addToCart(productId) {
             position: "bottom-end",
             icon: "success",
             title: "Item Added In Cart",
-            toast : true,
+            toast: true,
             showConfirmButton: false,
-            timer: 1500
-          });
+            timer: 1500,
+        });
     }
-    
+
     localStorage.setItem("cart", JSON.stringify(cartArr));
-    counter.innerHTML = cartArr.length;
+    updateCartCount(cartArr.length);
 }
 
-products.forEach((product, idx) => {
+products.forEach((product) => {
     document.getElementById("rowContent").innerHTML += `
-           <div class="col-12 col-sm-6 col-md-4 col-lg-3 hover-card">
-                        <div>
-                            <div class="bg-white">
-                                <div class="h-50c overflow-hidden">
-                                    <img src="${product.img}"
-                                        alt="${product.productName}" class="w-100 big-img">
-                                </div>
-                                <div class="p-4">
-                                    <div class="d-flex gap-2 mb-2">
-                                        <i class="fa-solid fa-star text-danger"></i>
-                                        <i class="fa-solid fa-star text-danger"></i>
-                                        <i class="fa-solid fa-star text-danger"></i>
-                                        <i class="fa-solid fa-star text-danger"></i>
-                                        <i class="fa-solid fa-star text-danger"></i>
-                                    </div>
-                                    <p class="text-body-secondary mb-2">${product.productName}</p>
-                                    <div class=" justify-content-between d-flex align-items-center justify-content-center">
-                                        <p class="fw-bold mb-0 ms-0 me-0">$${product.price}</p>
-                                        <button class="bg-color-icon hover-icon" onclick = "addToCart(${product.id})">
-                                            <i class="fa-solid fa-cart-shopping"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 hover-card">
+            <div class="bg-white">
+                <div class="h-50c overflow-hidden">
+                    <img src="${product.img}" alt="${product.productName}" class="w-100 big-img">
+                </div>
+                <div class="p-4">
+                    <div class="d-flex gap-2 mb-2">
+                        <i class="fa-solid fa-star text-danger"></i>
+                        <i class="fa-solid fa-star text-danger"></i>
+                        <i class="fa-solid fa-star text-danger"></i>
+                        <i class="fa-solid fa-star text-danger"></i>
+                        <i class="fa-solid fa-star text-danger"></i>
                     </div>
-    `
-})
+                    <p class="text-body-secondary mb-2">${product.productName}</p>
+                    <div class="justify-content-between d-flex align-items-center">
+                        <p class="fw-bold mb-0">$${product.price}</p>
+                        <button class="bg-color-icon hover-icon" onclick="addToCart(${product.id})">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+});

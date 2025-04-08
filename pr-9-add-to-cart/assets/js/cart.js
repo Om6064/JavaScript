@@ -3,7 +3,14 @@ let checkoutBox = document.getElementById("tablecontent");
 let totalAmount = 0;
 let totalCard = document.getElementById("totalCard")
 let hiddenContent = document.getElementById("hiddenContent")
-let counter = document.getElementById("counter")
+let counterMain = document.getElementById("counter");
+let counterOffcanvas = document.getElementById("counter-offcanvas");
+
+
+function updateCartCounters(count) {
+    if (counterMain) counterMain.innerText = count;
+    if (counterOffcanvas) counterOffcanvas.innerText = count;
+}
 
 function deleteItem(idx) {
     localArr.splice(idx, 1)
@@ -32,6 +39,8 @@ function displayItem() {
     checkoutBox.innerHTML = "";
     totalAmount = 0;
     counter.innerHTML = localArr.length;
+
+    updateCartCounters(localArr.length); 
 
 
     if (localArr.length === 0) {
