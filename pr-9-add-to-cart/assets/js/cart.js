@@ -11,7 +11,7 @@ function deleteItem(idx) {
     displayItem()
 
 }
-function clearAll(){
+function clearAll() {
     localStorage.removeItem("cart")
     location.reload();
 }
@@ -39,18 +39,18 @@ function displayItem() {
         totalCard.style.display = "none";
 
         checkoutBox.innerHTML = `
-            <div class="d-flex justify-content-between position-relative">
-                <div class="mt-3 col-10">
-                   <img src="./275-2756355_shopping-cart-is-empty-empty-shopping-cart-icon-removebg-preview.png" alt="empty-cart image" class="img-fluid">
+            
+                <div class="mt-3 ">
+                   <img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" height="10%">
                 </div>
               
-                <div class="col-2">
+                <div class="text-center w-25">
                     <button  class="w-100 text-center my-3 py-3 rounded text-white fw-bold hover-checkout" onclick="window.location = './index.html'">
                     <i class="fa-solid fa-arrow-left hover-left"></i>
                     Continue Shopping
                 </button> 
                 </div>    
-            </div>  
+       
         `;
         return;
     }
