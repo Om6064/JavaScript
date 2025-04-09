@@ -40,24 +40,26 @@ function displayItem() {
     totalAmount = 0;
     counter.innerHTML = localArr.length;
 
-    updateCartCounters(localArr.length); 
+    updateCartCounters(localArr.length);
 
 
     if (localArr.length === 0) {
 
         totalCard.style.display = "none";
 
-        checkoutBox.innerHTML = `
+        nothingCart.innerHTML = `
             
-                <div class="mt-3 col-12">
-                   <img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" class="img-fluid">
-                </div>
-              
-                <div class="text-center w-50 col-12">
-                    <button  class="w-100 text-center my-3 py-3 rounded text-white fw-bold hover-checkout" onclick="window.location = './index.html'">
-                    <i class="fa-solid fa-arrow-left hover-left"></i>
-                    Continue Shopping
-                </button> 
+                <div class="mt-3 col-12 text-center">
+                  <marquee scrollamount="20" direction="right"> <img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" class="img-fluid"></marquee>
+                  <div>
+                    <button  class="text-center my-3 py-3 rounded text-white fw-bold hover-checkout" onclick="window.location = './index.html'">
+                  <i class="fa-solid fa-arrow-left hover-left"></i>
+                  Continue Shopping
+              </button>
+                  </div> 
+                   </div>
+                   
+                   <div class="text-center w-25 col-12">
                 </div>    
        
         `;
