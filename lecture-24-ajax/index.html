@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button class="btn btn-danger" id="clickBtn">Click</button>
+    
+    <div id="text-name"></div>
+    <img src="" alt="" id="text-img">
+
+    <script>
+       let name = document.getElementById("name")
+        document.getElementById("clickBtn").addEventListener("click",function(){
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET",`https://api.github.com/users/${name.value}`)
+            xhr.onload = () => {
+                let userData = JSON.parse(xhr.response)
+                console.log(userData)
+                document.getElementById("text-name").innerHTML = userData.name
+                document.getElementById("text-img").src = userData.avatar_url
+            }
+            xhr.send()
+        })
+    </script>
+</body>
+</html>
