@@ -49,11 +49,11 @@ function displayItem() {
 
         checkoutBox.innerHTML = `
             
-                <div class="mt-3 ">
-                   <img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" height="10%">
+                <div class="mt-3 col-12">
+                   <img src="https://assets-v2.lottiefiles.com/a/6102a4f8-1176-11ee-bcc5-236dd7d5f88b/aK8IKRE5a3.gif" alt="empty-cart image" class="img-fluid">
                 </div>
               
-                <div class="text-center w-25">
+                <div class="text-center w-50 col-12">
                     <button  class="w-100 text-center my-3 py-3 rounded text-white fw-bold hover-checkout" onclick="window.location = './index.html'">
                     <i class="fa-solid fa-arrow-left hover-left"></i>
                     Continue Shopping
