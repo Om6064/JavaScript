@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<body class="text-center mt-5">
+    <button class="btn btn-danger" id="btnClick">Click to Generate</button>
+    <div id="dogContainer" class="mt-4"></div>
+
+    <script>
+        let btnClick = document.getElementById("btnClick");
+        btnClick.addEventListener("click", function () {
+            fetch("https://dog.ceo/api/breeds/image/random")
+                .then((res) => res.json())
+                .then((res) => {
+                    let img = document.createElement("img");
+                    img.src = res.message;
+                    img.alt = "Random Dog";
+                    img.style.maxWidth = "300px";
+                    img.classList.add("img-fluid", "mt-3");
+                    
+                    // Optionally clear previous image
+                    const container = document.getElementById("dogContainer");
+                    container.innerHTML = ""; // Clear previous image
+                    container.appendChild(img);
+                });
+        });
+    </script>
+</body>
+
+</html>
