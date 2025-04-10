@@ -19,8 +19,11 @@ function deleteItem(idx) {
 
 }
 function clearAll() {
-    localStorage.removeItem("cart")
-    location.reload();
+    // localStorage.removeItem("cart")
+    // location.reload();
+    localArr = [];
+    saveCartArray()
+    displayItem()
 }
 
 function updateQuntity(idx, value) {
