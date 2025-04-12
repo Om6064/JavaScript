@@ -27,9 +27,13 @@ body {
   width: 100%; */
 }
 .font-50{
-  font-size: 50px;
+  font-size: 50px !important;
   font-weight: bold;
   color: #f12711 !important;
+}
+.font-30{
+  font-size: 30px !important;
+  font-weight: bold;
 }
 
 .box {
@@ -114,6 +118,16 @@ body {
 
 .social-links a:hover {
   color: #f12711;
+}
+.by_defult{
+  color: black;
+  font-size: 22px;
+}
+.text-capitalize{
+  text-transform: capitalize;
+}
+.text-center{
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {

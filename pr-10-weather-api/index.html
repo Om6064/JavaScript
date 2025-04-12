@@ -8,72 +8,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
-    <body>
-        <div class="container">
-            <div class="box">
-                <div class="main-title">Date & City</div>
-                <div class="input-group">
-                    <input type="text" placeholder="Enter your city name..." class="enter" id="city-name" required>
-                    <button class="submit" id="btn">Submit</button>
-                </div>
-                <div class="date-display">
-                    <p id="year"></p>
-                    <p id="month"></p>
-                    <p id="date"></p>
-                    <p id="day"></p>
-                </div>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="main-title">Date & City</div>
+            <div class="input-group">
+                <input type="text" placeholder="Enter your city name..." class="enter" id="city-name" required>
+                <button class="submit" id="btn">Submit</button>
             </div>
-    
-            <div class="box">
-                <div class="weather-display">
-                    <h2 class="font-50" id="name"></h2>
-                    <span class="font-50" id="temp"></span>
-                    <span style="font-size: 2rem;">°C</span>
-                    <div>
-                        <img src="" alt="" id="iconimg">
-                    </div>
-                    <h3 id="feel"></h3>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/sunil-kumar-ab0a9b24b/" target="_blank"><i class="fa fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/inked_boi059/" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a href="https://t.snapchat.com/SjPRxgmH" target="_blank"><i class="fa fa-snapchat"></i></a>
-                    <a href="mailto:sk16331ee059@gmail.com" target="_blank"><i class="fa fa-google"></i></a>
-                    <a href="https://github.com/safikumar00" target="_blank"><i class="fa fa-github"></i></a>
-                    <a href="https://codepen.io/safikumar00" target="_blank"><i class="fa fa-codepen"></i></a>
-                </div>
+            <div class="date-display">
+                <p class="font-30" id="year"></p>
+                <p class="font-30" id="month"></p>
+                <p class="font-30" id="date"></p>
+                <p class="font-30" id="day"></p>
             </div>
         </div>
-    
-        <script>
-            document.getElementById("btn").addEventListener("click", function () {
-                let city_name = document.getElementById("city-name").value;
-                const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&units=metric&appid=9b7400312a4d468e4cde5c6015f0b1a2`;
-    
-                fetch(URL)
-                    .then(res => res.json())
-                    .then(res => {
-                    
-                        document.getElementById("name").innerText = city_name;
-                        document.getElementById("temp").innerText = res.main.temp;
-                        document.getElementById("feel").innerText = `Feels like: ${res.main.feels_like}°C`;
-                        document.getElementById("iconimg").src = `https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png` 
-                    });
-    
-                const d = new Date();
-                const year = d.getFullYear();
-                const date = d.getDate();
-                const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                const month = monthNames[d.getMonth()];
-                const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                const day = dayNames[d.getDay()];
-    
-                document.getElementById("year").innerText = `Year: ${year}`;
-                document.getElementById("date").innerText = `Date: ${date}`;
-                document.getElementById("month").innerText = `Month: ${month}`;
-                document.getElementById("day").innerText = `Day: ${day}`;
-            });
-        </script>
-    </body>
+
+        <div class="box">
+            <div class="weather-display text-center">
+                <h2 class="font-50 text-capitalize " id="name"></h2>
+                <span class="font-50 " id="temp"></span>
+                <!-- <span style="font-size: 2rem;" id="matrics">°C</span> -->
+                <div>
+                    <img src="" alt="" id="iconimg">
+                </div>
+                <h3 id="feel"></h3>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/aryan-patel07/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/_om_6064_/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://t.snapchat.com/SjPRxgmH" target="_blank"><i class="fa fa-snapchat"></i></a>
+                <a href="mailto:sk16331ee059@gmail.com" target="_blank"><i class="fa fa-google"></i></a>
+                <a href="https://github.com/om6064" target="_blank"><i class="fa fa-github"></i></a>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById("btn").addEventListener("click", function () {
+            let city_name = document.getElementById("city-name").value;
+            const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&units=metric&appid=9b7400312a4d468e4cde5c6015f0b1a2`;
+
+            fetch(URL)
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                    if (res.cod !== 200) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "No City Found",
+                            backdrop: false
+                        });
+                        document.getElementById("year").innerText = ""
+                        document.getElementById("date").innerText = ""
+                        document.getElementById("month").innerText = ""
+                        document.getElementById("day").innerText = ""
+                        <!-- document.getElementById("matrics").innerHTML = "" -->
+                        document.getElementById("name").innerText = ""
+                        document.getElementById("temp").innerHTML = ""
+                        document.getElementById("feel").innerText = ""
+                        document.getElementById("iconimg").src = ""
+                        document.getElementById("name").innerHTML = "No City Found"
+                        return;
+                    }
+                    document.getElementById("name").innerText = city_name;
+                    document.getElementById("temp").innerHTML = `${res.main.temp} <sup><span class="by_defult">°C </span><sup>`;
+                    document.getElementById("feel").innerText = `Feels like: ${res.main.feels_like}°C`;
+                    document.getElementById("iconimg").src = `https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
+                });
+
+            const d = new Date();
+            const year = d.getFullYear();
+            const date = d.getDate();
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const month = monthNames[d.getMonth()];
+            const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const day = dayNames[d.getDay()];
+
+            document.getElementById("year").innerText = `Year: ${year}`;
+            document.getElementById("date").innerText = `Date: ${date}`;
+            document.getElementById("month").innerText = `Month: ${month}`;
+            document.getElementById("day").innerText = `Day: ${day}`;
+        });
+    </script>
+</body>
 
 </html>
