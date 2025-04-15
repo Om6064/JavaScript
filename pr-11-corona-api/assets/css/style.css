@@ -1,8 +1,199 @@
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ==== Base Input Styles ==== */
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.d-flex input,
+.row input {
+    margin: .9em 0em !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border: 2px solid white !important;
+    color: white !important;
+    padding: 1.2em 0.8em 0.6em 0.8em;
+    border-radius: 8px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.d-flex input::placeholder,
+.row input::placeholder {
+    color: transparent;
+}
+
+.d-flex input:focus,
+.row input:focus {
+    border: 2px solid #383850 !important;
+    outline: none;
+}
+
+/* ==== Floating Label ==== */
+.input-group {
+    position: relative;
+    margin: 1.2em 0;
+}
+
+.input-group label {
+    position: absolute;
+    left: 1em;
+    top: 1.2em;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+    font-size: 1rem;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -0.6em;
+    left: 0.9em;
+    font-size: 0.75rem;
+    color: #eee;
+    background-color: #212034;
+    padding: 0 0.3em;
+    border-radius: 5px;
+}
+
+/* ==== Button Styling ==== */
+.d-flex button {
+    margin: 1.5em .6em;
+    padding: .6em 2.4em;
+    background-color: #383850;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.d-flex button:hover {
+    background-color: #505070;
+    transform: scale(1.05);
+}
+
+.d-flex button:active {
+    transform: scale(0.95);
+}
+
+/* ==== Background and Container ==== */
+body {
+    background: #7099AD;
+    background: linear-gradient(90deg, rgba(112, 153, 173, 1) 32%, rgba(34, 68, 95, 1) 73%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+    color: white;
+}
+
+.box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: auto;
+    max-width: 600px;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.01);
+}
+
+.responsive {
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+/* ==== Table Styling ==== */
+.table {
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+.table th,
+.table td {
+    padding: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==== Responsive Breakpoints ==== */
+@media (max-width: 768px) {
+    .box {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .d-flex input,
+    .row input {
+        font-size: 14px;
+    }
+
+    .d-flex button {
+        padding: .4em 1.8em;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .d-flex input,
+    .row input {
+        font-size: 13px;
+    }
+
+    .d-flex button {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .box {
+        padding: 0.8rem;
+        max-width: 100%;
+    }
+
+    .d-flex input,
+    .row input {
+        font-size: 12px;
+    }
+
+    .d-flex button {
+        font-size: 12px;
+        width: 100%;
+        padding: .4em 1em;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.4rem;
+    }
 }
