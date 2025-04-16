@@ -16,7 +16,7 @@ body {
 
 h2 {
     text-align: center;
-    color: #76d9ff;
+    color: #B7B1F2;
     font-weight: bold;
     margin-bottom: 25px;
 }
@@ -38,7 +38,7 @@ input[type="text"]::placeholder {
 button {
     border-radius: 10px;
     padding: 10px 20px;
-    background-color: #00bcd4;
+    background-color:#B7B1F2;
     color: white;
     font-weight: bold;
     border: none;
@@ -46,7 +46,7 @@ button {
 }
 
 button:hover {
-    background-color: #00acc1;
+    background-color: #998ff1;
 }
 
 #output {
@@ -69,7 +69,7 @@ button:hover {
 }
 
 .card-title {
-    color: #76d9ff;
+    color: #B7B1F2 !important;
 }
 
 .card-body p {
