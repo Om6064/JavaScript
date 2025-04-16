@@ -1,199 +1,156 @@
-/* ==== Base Input Styles ==== */
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.d-flex input,
-.row input {
-    margin: .9em 0em !important;
-    box-shadow: none !important;
-    background-color: transparent !important;
-    border: 2px solid white !important;
-    color: white !important;
-    padding: 1.2em 0.8em 0.6em 0.8em;
-    border-radius: 8px;
-}
-
-.d-flex input::placeholder,
-.row input::placeholder {
-    color: transparent;
-}
-
-.d-flex input:focus,
-.row input:focus {
-    border: 2px solid #383850 !important;
-    outline: none;
-}
-
-/* ==== Floating Label ==== */
-.input-group {
-    position: relative;
-    margin: 1.2em 0;
-}
-
-.input-group label {
-    position: absolute;
-    left: 1em;
-    top: 1.2em;
-    color: rgba(255, 255, 255, 0.6);
-    pointer-events: none;
-    transition: all 0.2s ease-out;
-    font-size: 1rem;
-}
-
-.input-group input:focus + label,
-.input-group input:not(:placeholder-shown) + label {
-    top: -0.6em;
-    left: 0.9em;
-    font-size: 0.75rem;
-    color: #eee;
-    background-color: #212034;
-    padding: 0 0.3em;
-    border-radius: 5px;
-}
-
-/* ==== Button Styling ==== */
-.d-flex button {
-    margin: 1.5em .6em;
-    padding: .6em 2.4em;
-    background-color: #383850;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.d-flex button:hover {
-    background-color: #505070;
-    transform: scale(1.05);
-}
-
-.d-flex button:active {
-    transform: scale(0.95);
-}
-
-/* ==== Background and Container ==== */
 body {
-    background: #7099AD;
-    background: linear-gradient(90deg, rgba(112, 153, 173, 1) 32%, rgba(34, 68, 95, 1) 73%);
+    background: linear-gradient(120deg, #1e1e2f, #2c2c3c);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 2rem;
-    color: white;
+    padding-top: 60px;
+    color: #e0e0e0;
 }
 
-.box {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 20px;
-    padding: 2rem;
+.container {
+    background: #2d2d3a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
     margin: auto;
-    max-width: 600px;
-    transition: transform 0.3s ease;
 }
 
-.box:hover {
-    transform: scale(1.01);
+h2 {
+    text-align: center;
+    color: #76d9ff;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
-.responsive {
-    width: 100%;
-    overflow: auto;
-    white-space: nowrap;
+input[type="text"] {
+    border-radius: 10px;
+    padding: 10px;
+    width: 70%;
+    background-color: #3a3a4a;
+    border: 1px solid #555;
+    color: #fff;
+    transition: 0.3s ease;
 }
 
-/* ==== Table Styling ==== */
-.table {
-    width: 100%;
+input[type="text"]::placeholder {
+    color: #999;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #00bcd4;
     color: white;
-    font-size: 16px;
-    border-collapse: collapse;
-    margin-top: 1em;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s ease;
 }
 
-.table th,
-.table td {
-    padding: 1em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+button:hover {
+    background-color: #00acc1;
 }
 
-/* ==== Responsive Breakpoints ==== */
-@media (max-width: 768px) {
-    .box {
-        padding: 1.5rem;
-        max-width: 90%;
-    }
-
-    .d-flex input,
-    .row input {
-        font-size: 14px;
-    }
-
-    .d-flex button {
-        padding: .4em 1.8em;
-    }
-
-    .table {
-        font-size: 14px;
-    }
+#output {
+    color: #ff6b6b;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
 }
 
-@media (max-width: 480px) {
-    .box {
-        padding: 1rem;
-        max-width: 95%;
-    }
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #39394d;
+    border-radius: 12px;
+    color: #e0e0e0;
+}
 
-    .d-flex input,
-    .row input {
-        font-size: 13px;
-    }
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+}
 
-    .d-flex button {
-        font-size: 14px;
+.card-title {
+    color: #76d9ff;
+}
+
+.card-body p {
+    font-size: 1rem;
+}
+
+.card-body span {
+    display: inline-block;
+}
+
+.card-text span.text-danger {
+    color: #ff6b6b !important;
+}
+
+.card-text span.text-success {
+    color: #66ff99 !important;
+}
+
+.card-text span.text-secondary {
+    color: #cccccc !important;
+}
+
+.color-bg {
+    background-color: #00bcd4 !important;
+}
+
+.custom-card {
+    background: linear-gradient(145deg, #2f2f44, #3c3c5a);
+    border-radius: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #e0e0e0;
+}
+
+.custom-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(0, 188, 212, 0.4);
+}
+
+.text-accent {
+    color: #76d9ff;
+}
+
+.border-accent {
+    border-color: #76d9ff;
+}
+
+.text-label {
+    color: #cfcfcf;
+}
+
+.card-text {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
+/* 🔽 Responsive Fixes for Small Screens */
+@media (max-width: 576px) {
+    input[type="text"] {
         width: 100%;
+        margin-bottom: 10px;
     }
 
-    table {
-        font-size: 12px;
-    }
-
-    .table th,
-    .table td {
-        padding: 0.5rem;
-    }
-}
-
-@media (max-width: 320px) {
-    .box {
-        padding: 0.8rem;
-        max-width: 100%;
-    }
-
-    .d-flex input,
-    .row input {
-        font-size: 12px;
-    }
-
-    .d-flex button {
-        font-size: 12px;
+    button {
         width: 100%;
-        padding: .4em 1em;
+        margin-left: 0;
     }
 
-    table {
-        font-size: 10px;
+    .d-flex.justify-content-center.mb-3 {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .table th,
-    .table td {
-        padding: 0.4rem;
+    .container {
+        padding: 20px 15px;
+    }
+
+    .card-body p {
+        font-size: 0.95rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
     }
 }
