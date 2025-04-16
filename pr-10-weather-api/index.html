@@ -57,7 +57,7 @@
                 .then(res => {
                     console.log(res)
                     if (res.cod !== 200) {
-                
+                        document.getElementById("city-name").value = ""
                         document.getElementById("year").innerText = ""
                         document.getElementById("date").innerText = ""
                         document.getElementById("month").innerText = ""
