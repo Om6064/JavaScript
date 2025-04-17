@@ -72,14 +72,14 @@
   .enter {
     flex: 1;
     padding: 0.5rem 1rem;
-    border: 2px solid #f5af19;
+    border: 2px solid #3d71a1;
     border-radius: 10px 0 0 10px;
     font-size: 1rem;
     min-width: 0;
   }
   
   .submit {
-    background-color: #f5af19;
+    background-color: #3d71a1;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
