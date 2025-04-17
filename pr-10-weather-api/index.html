@@ -51,13 +51,13 @@
         document.getElementById("btn").addEventListener("click", function () {
             let city_name = document.getElementById("city-name").value;
             const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&units=metric&appid=9b7400312a4d468e4cde5c6015f0b1a2`;
+            document.getElementById("city-name").value = ""
 
             fetch(URL)
                 .then(res => res.json())
                 .then(res => {
                     console.log(res)
                     if (res.cod !== 200) {
-                        document.getElementById("city-name").value = ""
                         document.getElementById("year").innerText = ""
                         document.getElementById("date").innerText = ""
                         document.getElementById("month").innerText = ""

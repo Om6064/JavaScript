@@ -31,6 +31,7 @@
 
             document.getElementById("output").innerHTML = "";
             document.getElementById("cardContainer").innerHTML = "";
+            document.getElementById("ctName").value = ""
 
             fetch(url)
                 .then(res => res.json())
