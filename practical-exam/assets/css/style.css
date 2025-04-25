@@ -1,0 +1,26 @@
+
+.box{
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+padding: 200px;
+}
+
+.bg{
+    background-image: url("https://t4.ftcdn.net/jpg/02/43/75/73/360_F_243757367_gBpS6R5c8DB7pL5gw9gi9KXlzFfbdZOA.jpg");
+}
+.col-4{
+    transition: all .3s linear;
+}
+.col-4:hover{
+    transform: scale(1.05);
+}
+/* .bg-card{
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/053/826/504/small/a-dark-and-light-blue-room-with-a-wooden-floor-free-photo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+} */

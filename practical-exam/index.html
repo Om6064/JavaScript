@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- <section>
+       <div class="container">
+        <h1 class="text-center">Products</h1>
+        <div class="card my-5" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQipZ4e4pBbZWAQD27nroaXZr-oFkPojd97qw&s" class="card-img-top" alt="Top">
+            <div class="card-body">
+              <h5 class="card-title">Brown Top</h5>
+              <p class="card-text">$523</p>
+              <button>Add To Card</button>
+            </div>
+          </div>
+       </div>
+    </section> -->
+
+
+    <section class="bg">
+        <div class="container">
+            <div class="">
+                <div class="d-flex vh-100 ">
+                    <div class="py-5 m-auto box">
+                        <h1 class="text-center text-white">Product Form</h1>
+                        <div class="py-3">
+                            <label for="name" class="text-white">Title :</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                        </div>
+                        <div class="py-3">
+                            <label for="price" class="text-white">Price :</label>
+                            <input type="number" class="form-control" id="price" placeholder="Enter Price">
+                        </div>
+                        <div class="py-3">
+                            <label for="image" class="text-white">Image :</label>
+                            <input type="url" class="form-control" id="image">
+                        </div>
+                        <div class="py-3">
+                            <label for="name" class="text-white">Category :</label>
+                            <input type="text" class="form-control" id="category" placeholder="Enter category">
+                            <div class="text-center my-3"><button class="btn btn-success" id="btn">Submit</button>
+                                <button class="btn btn-danger" id="btn" onclick="window.location = './home.html'" id="show">Show
+                                    Data</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let arr = JSON.parse(localStorage.getItem("product")) || []
+        let editinfo = JSON.parse(localStorage.getItem("editinfo"))
+        let editindex = JSON.parse(localStorage.getItem("editindex"))
+        let btn = document.getElementById("btn")
+
+        document.addEventListener("DOMContentLoaded", () => {
+           if(editindex != null){
+            document.getElementById("name").value = editinfo.name
+            document.getElementById("price").value = editinfo.price
+            document.getElementById("image").value = editinfo.image
+            document.getElementById("category").value = editinfo.catagory
+           }
+
+        })
+
+        btn.addEventListener("click", () => {
+            let name = document.getElementById("name").value
+            let price = document.getElementById("price").value
+            let image = document.getElementById("image").value
+            let catagory = document.getElementById("category").value
+
+            let obj = {
+                name,
+                price,
+                image,
+                catagory
+            }
+
+            if(editindex != null){
+                arr[editindex] = obj
+                localStorage.setItem("product", JSON.stringify(arr))
+            }else{
+                arr.push(obj)
+            }
+            localStorage.setItem("product", JSON.stringify(arr))
+            window.location = "./home.html"
+            name = ""
+            price = ""
+            image = ""
+            catagory = ""
+        })
+
+        show.addEventListener("click",() => {
+            document.getElementById("name").value =  ""
+           document.getElementById("price").value =  ""
+             document.getElementById("image").value =  ""
+             document.getElementById("category").value =  ""
+        })
+    </script>
+</body>
+
+</html>

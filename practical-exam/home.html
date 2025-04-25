@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="bg-card">
+    <section>
+        <div class="container">
+            <h1 class="text-center">Products</h1>
+            <div class="py-4">
+                <label for="search">search</label>
+                <input type="text" placeholder="Search here" id="search" class="form-control">
+                <button class="btn btn-success my-3" onclick="search()">Search</button>
+            </div>
+            <h2 id="empty"></h2>
+            <div class="row" id="table-content">
+                <!-- <div class="col-4">
+                    <div class="card my-5" style="width: 18rem;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQipZ4e4pBbZWAQD27nroaXZr-oFkPojd97qw&s"
+                            class="card-img-top" alt="Top">
+                        <div class="card-body">
+                            <h5 class="card-title">Brown Top</h5>
+                            <p class="card-text">$523</p>
+                            <button>Add To Card</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div><button class="btn btn-danger" onclick="window.location = './index.html'">Back</button></div>
+        </div>
+    </section>
+
+    <script>
+        let arr = JSON.parse(localStorage.getItem("product")) || []
+
+        function display() {
+            document.getElementById("table-content").innerHTML = ""
+            arr.forEach((items, idx) => {
+                document.getElementById("table-content").innerHTML += `
+                     <div class="col-4">
+                <div class="card my-5" style="width: 18rem;">
+                    <img src="${items.image}" class="card-img-top" alt="Top">
+                    <div class="card-body">
+                      <h5 class="card-title">${items.name}</h5>
+                      <p class="card-text">$${items.price}</p>
+                      <p class="card-text">${items.catagory}</p>
+                      <button class="btn btn-warning" onclick="editProduct(${idx})">EditProduct</button>
+                      <button class="btn btn-warning" onclick="deleteProduct(${idx})">DeleteProduct</button>
+                    </div>
+                  </div>
+               </div>
+            </div>
+                `
+            })
+        }
+        if (arr.length == 0) {
+            document.getElementById("empty").innerHTML = "No Product Found"
+        } else {
+            display()
+        }
+
+        function editProduct(productId) {
+            let obj = arr[productId]
+            localStorage.setItem("editindex", productId)
+            localStorage.setItem("editinfo", JSON.stringify(obj))
+            window.location = "./index.html"
+        }
+        function deleteProduct(idx) {
+            arr.splice(idx, 1)
+            localStorage.setItem("product", JSON.stringify(arr))
+            display()
+            localStorage.removeItem("editindex")
+            localStorage.removeItem("editinfo")
+        }
+        function search() {
+            let search = document.getElementById("search").value
+            let none = document.querySelector(".col-4")
+            arr.forEach((item, idx) => {
+                console.log(item.name)
+                if (search != item.name) {
+                    none.classList.remove("d-none")
+                    document.getElementById("empty").innerHTML = "No Element Match"
+                }else{
+                    none.classList.add("d-none")
+                }
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>
