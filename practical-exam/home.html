@@ -83,7 +83,7 @@
             let none = document.querySelector(".col-4")
             arr.forEach((item, idx) => {
                 console.log(item.name)
-                if (search != item.name) {
+                if (search == item.name) {
                     none.classList.remove("d-none")
                     document.getElementById("empty").innerHTML = "No Element Match"
                 }else{
