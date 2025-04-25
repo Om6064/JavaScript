@@ -59,7 +59,10 @@
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
+     
         let arr = JSON.parse(localStorage.getItem("product")) || []
         let editinfo = JSON.parse(localStorage.getItem("editinfo"))
         let editindex = JSON.parse(localStorage.getItem("editindex"))
@@ -80,6 +83,15 @@
             let price = document.getElementById("price").value
             let image = document.getElementById("image").value
             let catagory = document.getElementById("category").value
+            if(name == "" || price == "" || image == "" || catagory == ""){
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                  });
+                  return
+            }
 
             let obj = {
                 name,
