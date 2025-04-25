@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body class="bg-card">
+<body class="bg">
     <section>
         <div class="container">
             <h1 class="text-center">Products</h1>
@@ -47,9 +47,9 @@
                 <div class="card my-5" style="width: 18rem;">
                     <img src="${items.image}" class="card-img-top" alt="Top">
                     <div class="card-body">
-                      <h5 class="card-title">${items.name}</h5>
-                      <p class="card-text">$${items.price}</p>
-                      <p class="card-text">${items.catagory}</p>
+                      <h5 class="card-title text-success">${items.name}</h5>
+                      <p class="card-text text-danger">$${items.price}</p>
+                      <p class="card-text text-black">${items.catagory}</p>
                       <button class="btn btn-warning" onclick="editProduct(${idx})">EditProduct</button>
                       <button class="btn btn-warning" onclick="deleteProduct(${idx})">DeleteProduct</button>
                     </div>
@@ -96,4 +96,4 @@
     </script>
 </body>
 
-</html>
+</html> 
